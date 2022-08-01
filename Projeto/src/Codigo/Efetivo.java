@@ -10,6 +10,8 @@ package Codigo;
  */
 public class Efetivo extends Docente {
 
+    protected String area;
+
     @Override
     double calcularSalario() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
