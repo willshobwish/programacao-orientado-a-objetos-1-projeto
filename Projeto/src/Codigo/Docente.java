@@ -10,6 +10,8 @@ package Codigo;
  */
 public abstract class Docente extends Funcionario {
 
+    protected String titulacao;
+
     abstract double calcularSalario();
 
     public String getCodigo() {
