@@ -2,9 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Codigo;
-
-import Interface.NovoCadastro;
+package Interface;
 
 /**
  *
@@ -143,12 +141,14 @@ public class IUPrincipal extends javax.swing.JFrame {
 
     private void GeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeralActionPerformed
         // TODO add your handling code here:
-
+        IURelatorio RelatorioInterface = new IURelatorio(this, true);
+        RelatorioInterface.setLocationRelativeTo(this);
+        RelatorioInterface.setVisible(true);
     }//GEN-LAST:event_GeralActionPerformed
 
     private void NovoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoCadastroActionPerformed
         // TODO add your handling code here:
-        NovoCadastro NovoCadastroInterface = new NovoCadastro(this, true);
+        IUNovoCadastro NovoCadastroInterface = new IUNovoCadastro(this, true);
         NovoCadastroInterface.setLocationRelativeTo(this);
         NovoCadastroInterface.setVisible(true);
     }//GEN-LAST:event_NovoCadastroActionPerformed
