@@ -10,6 +10,8 @@ package Codigo;
  */
 public class Substituto extends Docente {
 
+    protected int cargaHoraria;
+
     @Override
     double calcularSalario() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
