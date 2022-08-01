@@ -10,6 +10,8 @@ package Codigo;
  */
 public class Tecnico extends Funcionario {
 
+    protected String funcao;
+
     public String getCodigo() {
         return codigo;
     }
