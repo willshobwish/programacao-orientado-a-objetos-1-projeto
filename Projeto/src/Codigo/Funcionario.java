@@ -13,9 +13,18 @@ public abstract class Funcionario {
     protected String codigo;
     protected String nome;
     protected double salario;
+    protected String categoria;
     protected String nivel;
 
     abstract double calcularSalario();
+
+    public Funcionario(String codigo, String nome, double salario, String categoria, String nivel) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.salario = salario;
+        this.categoria = categoria;
+        this.nivel = nivel;
+    }
 
 //Getter
     public String getCodigo() {
@@ -32,6 +41,14 @@ public abstract class Funcionario {
 
     public String getNivel() {
         return nivel;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
 //Setter
