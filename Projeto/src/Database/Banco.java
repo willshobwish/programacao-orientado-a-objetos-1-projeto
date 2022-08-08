@@ -8,6 +8,10 @@ package Database;
  *
  * @author Willian
  */
-public class CodeDatabase {
+public class Banco {
+
+    private String nomeBanco;
+    private int contador;
+    private int maximo;
 
 }
