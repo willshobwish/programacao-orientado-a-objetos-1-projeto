@@ -12,6 +12,11 @@ public class Substituto extends Docente {
 
     protected int cargaHoraria;
 
+    public Substituto(String codigo, String nome, double salario, String categoria, String nivel, String titulacao, int cargaHoraria) {
+        super(codigo, nome, salario, categoria, nivel, titulacao);
+        this.cargaHoraria = cargaHoraria;
+    }
+
     @Override
     double calcularSalario() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
