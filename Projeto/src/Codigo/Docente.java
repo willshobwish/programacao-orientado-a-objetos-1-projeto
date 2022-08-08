@@ -14,6 +14,11 @@ public abstract class Docente extends Funcionario {
 
     abstract double calcularSalario();
 
+    public Docente(String codigo, String nome, double salario, String categoria, String nivel, String titulacao) {
+        super(codigo, nome, salario, categoria, nivel);
+        this.titulacao = titulacao;
+    }
+
     public String getCodigo() {
         return codigo;
     }
