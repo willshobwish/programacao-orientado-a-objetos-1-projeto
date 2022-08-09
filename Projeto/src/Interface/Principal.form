@@ -56,6 +56,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Resumo dos departamentos com gasto em faixa espec&#xed;fica"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ResumoDepartamentoGastoActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="FuncionarioSalarioEspecifico">
               <Properties>
