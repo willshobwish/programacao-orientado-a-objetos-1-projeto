@@ -18,8 +18,9 @@ public class Exibir extends javax.swing.JDialog {
         initComponents();
     }
 
-    public void alterarTexto(String Texto) {
+    public void alterarTexto(String Titulo, String Texto) {
         ExibirText.setText(Texto);
+        this.Titulo.setText(Titulo);
     }
 
     /**
@@ -33,6 +34,7 @@ public class Exibir extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         ExibirText = new javax.swing.JTextArea();
+        Titulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -40,6 +42,8 @@ public class Exibir extends javax.swing.JDialog {
         ExibirText.setColumns(20);
         ExibirText.setRows(5);
         jScrollPane1.setViewportView(ExibirText);
+
+        Titulo.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,11 +53,17 @@ public class Exibir extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(182, 182, 182)
+                .addComponent(Titulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(129, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(Titulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -105,6 +115,7 @@ public class Exibir extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea ExibirText;
+    private javax.swing.JLabel Titulo;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
