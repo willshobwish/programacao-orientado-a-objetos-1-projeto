@@ -14,30 +14,50 @@ public class Controle {
 
     private int cont = 1000;
 
-    private static Universidade BancoDados = new Universidade("Departamentos universidade");
+    private static Universidade Universidade = new Universidade("Departamentos da universidade");
 
     public void adicionarDepartamento(String Codigo, String Nome) {
-        BancoDados.adicionarDepartamento(Codigo, Nome);
+        Universidade.adicionarDepartamento(Codigo, Nome);
     }
 
     public String exibirTodosDepartamentos() {
-        return BancoDados.dadosTodosDepartamentos();
+        return Universidade.dadosTodosDepartamentos();
     }
 
-    public String exibirDepartamentos() {
-//        return BancoDados.
+    public int getQuantidadeDepartameto() {
+        return Universidade.getQuantidadeDepartamento();
     }
 
-    public void cadastrarDocenteEfetivo(String codigo, String nome, double salario, String categoria, String nivel, String titulacao, String area) {
-
+    public String getDepartamentoNome(int Numero) {
+        return Universidade.getDepartamentoNome(Numero);
     }
 
-    public void cadastrarDocenteSubstituto() {
-
+    public void cadastrarDocenteEfetivo(String codigo, String nome, double salario, String categoria, String nivel, String departamento, String titulacao, String area) {
+        Universidade.adicionarDocenteEfetivo(codigo, nome, salario, categoria, nivel, departamento, titulacao, area);
     }
 
-    public void cadastrarTecnico() {
-
+    public void cadastrarDocenteSubstituto(String codigo, String nome, double salario, String categoria, String nivel, String departamento, String titulacao, int cargaHoraria) {
+        Universidade.adicionarDocenteSubstituto(codigo, nome, salario, categoria, nivel, departamento, titulacao, cargaHoraria);
     }
 
+    public void cadastrarTecnico(String codigo, String nome, double salario, String categoria, String nivel, String funcao, String departamento) {
+        Universidade.adicionarTecnico(codigo, nome, salario, categoria, nivel, funcao, departamento);
+        System.out.println("Execucao do controle para adicao de tecnico ");
+    }
+
+    public String exibirTodosFuncionarios() {
+        return Universidade.getFuncionarios();
+    }
+
+    public String exibirTodosTecnicos() {
+        return Universidade.getTecnicos();
+    }
+
+    public String exibirTodosDocentesEfetivos() {
+        return Universidade.getDocentesEfetivos();
+    }
+
+    public String exibirTodosDocentesSubstitutos() {
+        return Universidade.getDocentesSubstitutos();
+    }
 }
