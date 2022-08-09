@@ -17,17 +17,6 @@ public class Tecnico extends Funcionario {
         this.funcao = funcao;
     }
 
-    public String dados() {
-        String info = """
-                      Codigo:%s
-                      Nome:%s
-                      Salario:%s
-                      Nivel:%s
-                      Funcao:%s
-                      """.formatted(codigo, nome, Double.toString(salario), nivel, funcao);
-        return info;
-    }
-
     public String getFuncao() {
         return funcao;
     }

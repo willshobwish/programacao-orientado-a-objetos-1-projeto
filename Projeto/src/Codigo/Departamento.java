@@ -12,9 +12,6 @@ public class Departamento {
 
     private String codigo;
     private String nome;
-//    private double salario;
-//    private String nivel;
-//    private String funcao;
     private Funcionario ListaFuncionario[] = new Funcionario[1000];
     private int contador = 0;
     private int maximo = 1000;
@@ -36,8 +33,8 @@ public class Departamento {
     }
 
     public void adicionarTecnico(String codigo, String nome, double salario, String categoria, String nivel, String funcao) {
-        Tecnico T = new Tecnico(codigo, nome, salario, categoria, nivel, funcao);
-        adicionarFuncionario(T);
+        Tecnico Tecnico = new Tecnico(codigo, nome, salario, categoria, nivel, funcao);
+        adicionarFuncionario(Tecnico);
     }
 
     public void adicionarDocenteEfetivo(String codigo, String nome, double salario, String categoria, String nivel, String titulacao, String area) {
@@ -71,26 +68,14 @@ public class Departamento {
             default:
                 throw new AssertionError();
         }
-//        if (ListaFuncionario[numero].getCategoria().toString().equals("Docente efetivo")) {
-//            Tecnico tecnico = (Tecnico) ListaFuncionario[numero];
-//            String codigo = tecnico.getCodigo();
-//            String nome = tecnico.getNome();
-//            String salario = Double.toString(tecnico.getSalario());
-//            String nivel = tecnico.getNivel();
-//            String funcao = tecnico.getFuncao();
-//            String info = """
-//                      Codigo:%s
-//                      Nome:%s
-//                      Salario:%s
-//                      Nivel:%s
-//                      Funcao:%s
-//                      """.formatted(codigo, nome, salario, nivel, funcao);
-//            return info;
-//        }
     }
 
     public String getCodigo() {
         return codigo;
+    }
+
+    public int getContador() {
+        return contador;
     }
 
     public void setCodigo(String codigo) {
