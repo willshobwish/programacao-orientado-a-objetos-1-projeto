@@ -19,6 +19,13 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
     }
 
+    public static void main(String[] args) {;
+        Interface.Principal InterfaceMenu = new Interface.Principal();
+        InterfaceMenu.setVisible(true);
+        InterfaceMenu.setTitle("Sistema faculdade");
+        InterfaceMenu.toFront();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -106,6 +113,11 @@ public class Principal extends javax.swing.JFrame {
         Exibir.setText("Exibir");
 
         TodosFuncionarios.setText("Todos os funcionários");
+        TodosFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TodosFuncionariosActionPerformed(evt);
+            }
+        });
         Exibir.add(TodosFuncionarios);
 
         TodosTecnicos.setText("Todos os técnicos");
@@ -117,15 +129,35 @@ public class Principal extends javax.swing.JFrame {
         Exibir.add(TodosTecnicos);
 
         TodosDocentes.setText("Todos os docentes");
+        TodosDocentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TodosDocentesActionPerformed(evt);
+            }
+        });
         Exibir.add(TodosDocentes);
 
         TodosDocentesEfetivos.setText("Todos os docentes efetivos");
+        TodosDocentesEfetivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TodosDocentesEfetivosActionPerformed(evt);
+            }
+        });
         Exibir.add(TodosDocentesEfetivos);
 
         TodosDocentesSubstitutos.setText("Todos os docentes substitutos");
+        TodosDocentesSubstitutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TodosDocentesSubstitutosActionPerformed(evt);
+            }
+        });
         Exibir.add(TodosDocentesSubstitutos);
 
         InformacoesDepartamento.setText("Informações de um departamento");
+        InformacoesDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InformacoesDepartamentoActionPerformed(evt);
+            }
+        });
         Exibir.add(InformacoesDepartamento);
 
         BarraDeMenu.add(Exibir);
@@ -133,9 +165,19 @@ public class Principal extends javax.swing.JFrame {
         Buscar.setText("Buscar");
 
         FuncionarioCodigo.setText("Funcionários pelo código");
+        FuncionarioCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FuncionarioCodigoActionPerformed(evt);
+            }
+        });
         Buscar.add(FuncionarioCodigo);
 
         FuncionarioNome.setText("Funcionários pelo nome");
+        FuncionarioNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FuncionarioNomeActionPerformed(evt);
+            }
+        });
         Buscar.add(FuncionarioNome);
 
         BarraDeMenu.add(Buscar);
@@ -170,7 +212,10 @@ public class Principal extends javax.swing.JFrame {
 
     private void CadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroFuncionarioActionPerformed
         // TODO add your handling code here:
+
         CadastroFuncionario NovoCadastroInterface = new CadastroFuncionario(this, true);
+        Controle Controle = new Controle();
+        NovoCadastroInterface.ListaDepartamento("aaaaaaaaaaa");
         NovoCadastroInterface.setTitle("Novo cadastro de funcionário");
         NovoCadastroInterface.setLocationRelativeTo(this);
         NovoCadastroInterface.setVisible(true);
@@ -178,6 +223,11 @@ public class Principal extends javax.swing.JFrame {
 
     private void TodosTecnicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosTecnicosActionPerformed
         // TODO add your handling code here:
+        Controle Controle = new Controle();
+        Exibir ExibitInterface = new Exibir(this, true);
+        ExibitInterface.setTitle("Todos os técnicos");
+        ExibitInterface.setLocationRelativeTo(this);
+        ExibitInterface.setVisible(true);
     }//GEN-LAST:event_TodosTecnicosActionPerformed
 
     private void CadastroDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroDepartamentoActionPerformed
@@ -192,11 +242,76 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Controle Controle = new Controle();
         Exibir ExibitInterface = new Exibir(this, true);
-        ExibitInterface.alterarTexto(Controle.exibirTodosDepartamentos());
+        ExibitInterface.alterarTexto("Resumo dos departamentos", Controle.exibirTodosDepartamentos()
+        );
         ExibitInterface.setTitle("Resumo dos departamentos");
+
         ExibitInterface.setLocationRelativeTo(this);
         ExibitInterface.setVisible(true);
     }//GEN-LAST:event_ResumoDepartamentoActionPerformed
+
+    private void FuncionarioCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioCodigoActionPerformed
+        // TODO add your handling code here:
+        BuscaCodigo BuscarInterface = new BuscaCodigo(this, true);
+        BuscarInterface.setTitle("Buscar pelo código");
+        BuscarInterface.Exibir("Buscar pelo código");
+        BuscarInterface.setLocationRelativeTo(this);
+        BuscarInterface.setVisible(true);
+    }//GEN-LAST:event_FuncionarioCodigoActionPerformed
+
+    private void FuncionarioNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioNomeActionPerformed
+        // TODO add your handling code here:
+        BuscaNome BuscarInterface = new BuscaNome(this, true);
+        BuscarInterface.setTitle("Buscar pelo nome");
+        BuscarInterface.Exibir("Buscar pelo nome");
+        BuscarInterface.setLocationRelativeTo(this);
+        BuscarInterface.setVisible(true);
+    }//GEN-LAST:event_FuncionarioNomeActionPerformed
+
+    private void TodosFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosFuncionariosActionPerformed
+        // TODO add your handling code here:
+        Controle Controle = new Controle();
+        Exibir ExibitInterface = new Exibir(this, true);
+        ExibitInterface.setTitle("Todos os funcionários");
+        ExibitInterface.setLocationRelativeTo(this);
+        ExibitInterface.setVisible(true);
+    }//GEN-LAST:event_TodosFuncionariosActionPerformed
+
+    private void TodosDocentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosDocentesActionPerformed
+        // TODO add your handling code here:
+        Controle Controle = new Controle();
+        Exibir ExibitInterface = new Exibir(this, true);
+        ExibitInterface.setTitle("Todos os docentes");
+        ExibitInterface.setLocationRelativeTo(this);
+        ExibitInterface.setVisible(true);
+    }//GEN-LAST:event_TodosDocentesActionPerformed
+
+    private void TodosDocentesEfetivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosDocentesEfetivosActionPerformed
+        // TODO add your handling code here:
+        Controle Controle = new Controle();
+        Exibir ExibitInterface = new Exibir(this, true);
+        ExibitInterface.setTitle("Todos os docentes efetivos");
+        ExibitInterface.setLocationRelativeTo(this);
+        ExibitInterface.setVisible(true);
+    }//GEN-LAST:event_TodosDocentesEfetivosActionPerformed
+
+    private void TodosDocentesSubstitutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosDocentesSubstitutosActionPerformed
+        // TODO add your handling code here:
+        Controle Controle = new Controle();
+        Exibir ExibitInterface = new Exibir(this, true);
+        ExibitInterface.setTitle("Todos os docentes efetivos");
+        ExibitInterface.setLocationRelativeTo(this);
+        ExibitInterface.setVisible(true);
+    }//GEN-LAST:event_TodosDocentesSubstitutosActionPerformed
+
+    private void InformacoesDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformacoesDepartamentoActionPerformed
+        // TODO add your handling code here:
+        Controle Controle = new Controle();
+        InformacoesDepartamento Informacoes = new InformacoesDepartamento(this, true);
+        Informacoes.setTitle("Informações de um departamento");
+        Informacoes.setLocationRelativeTo(this);
+        Informacoes.setVisible(true);
+    }//GEN-LAST:event_InformacoesDepartamentoActionPerformed
 
     /**
      * @param args the command line arguments

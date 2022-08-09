@@ -73,6 +73,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Todos os funcion&#xe1;rios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TodosFuncionariosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="TodosTecnicos">
               <Properties>
@@ -86,21 +89,33 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Todos os docentes"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TodosDocentesActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="TodosDocentesEfetivos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Todos os docentes efetivos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TodosDocentesEfetivosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="TodosDocentesSubstitutos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Todos os docentes substitutos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TodosDocentesSubstitutosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="InformacoesDepartamento">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es de um departamento"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InformacoesDepartamentoActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -113,11 +128,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios pelo c&#xf3;digo"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FuncionarioCodigoActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="FuncionarioNome">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Funcion&#xe1;rios pelo nome"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FuncionarioNomeActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
