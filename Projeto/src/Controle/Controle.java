@@ -12,8 +12,6 @@ import Banco.Universidade;
  */
 public class Controle {
 
-    private int cont = 1000;
-
     private static Universidade Universidade = new Universidade("Departamentos da universidade");
 
     public void adicionarDepartamento(String Codigo, String Nome) {
