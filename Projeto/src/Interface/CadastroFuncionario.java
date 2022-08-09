@@ -219,6 +219,7 @@ public class CadastroFuncionario extends javax.swing.JDialog {
         }
         if (CategoriaBox.getSelectedItem().toString().equals("Docente substituto")) {
             NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"S1", "S2"}));
+            FuncaoTitulacaoJBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Graduacao", "Mestrado", "Doutorado", "Livre-docente"}));
             FuncaoTitulacaoLabel.setText("Titulação");
             CargaHorariaAreaLabel.setText("Carga horária");
             CargaHorariaAreaJBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"12", "24"}));
@@ -230,20 +231,39 @@ public class CadastroFuncionario extends javax.swing.JDialog {
     }//GEN-LAST:event_CategoriaBoxActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
+        String codigo, nome, categoria, nivel, funcao, area, titulacao;
+        int cargaHoraria;
+        double salario;
+        Controle Controle = new Controle();
         switch (CategoriaBox.getSelectedItem().toString()) {
             case "Tecnico":
-                String codigo = Codigo.getText();
-                String nome = Nome.getText();
-                double salario = Double.parseDouble(Salario.getText());
-                String categoria = CategoriaBox.getSelectedItem().toString();
-                String nivel = NivelBox.getSelectedItem().toString();
-                String funcao = FuncaoTitulacaoJBox.getSelectedItem().toString();
-                Controle Controle = new Controle();
-                Controle.adicionarTecnicoControle(codigo, nome, salario, categoria, nivel, funcao);
+                codigo = Codigo.getText();
+                nome = Nome.getText();
+                salario = Double.parseDouble(Salario.getText());
+                categoria = CategoriaBox.getSelectedItem().toString();
+                nivel = NivelBox.getSelectedItem().toString();
+                funcao = FuncaoTitulacaoJBox.getSelectedItem().toString();
+                Controle.cadastrarTecnico(codigo, nome, salario, categoria, nivel, funcao, Departamento.getSelectedItem().toString());
                 break;
             case "Docente efetivo":
+                codigo = Codigo.getText();
+                nome = Nome.getText();
+                salario = Double.parseDouble(Salario.getText());
+                categoria = CategoriaBox.getSelectedItem().toString();
+                nivel = NivelBox.getSelectedItem().toString();
+                titulacao = FuncaoTitulacaoJBox.getSelectedItem().toString();
+                area = CargaHorariaAreaJBox.getSelectedItem().toString();
+                Controle.cadastrarDocenteEfetivo(codigo, nome, salario, categoria, nivel, Departamento.getSelectedItem().toString(), titulacao, area);
                 break;
             case "Docente substituto":
+                codigo = Codigo.getText();
+                nome = Nome.getText();
+                salario = Double.parseDouble(Salario.getText());
+                categoria = CategoriaBox.getSelectedItem().toString();
+                nivel = NivelBox.getSelectedItem().toString();
+                titulacao = FuncaoTitulacaoJBox.getSelectedItem().toString();
+                cargaHoraria = Integer.parseInt(CargaHorariaAreaJBox.getSelectedItem().toString());
+                Controle.cadastrarDocenteSubstituto(codigo, nome, salario, categoria, nivel, Departamento.getSelectedItem().toString(), titulacao, cargaHoraria);
                 break;
             default:
                 throw new AssertionError();
