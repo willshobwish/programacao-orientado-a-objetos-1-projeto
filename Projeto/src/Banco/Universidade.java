@@ -84,7 +84,22 @@ public class Universidade {
             Dados = Dados + "Departamento: " + Departamentos[i].getNome() + "\n";
             Funcionario ListaFuncionario[] = Departamentos[i].getListaFuncionario();
             for (int j = 0; j < Departamentos[i].getContador(); j++) {
-                Dados = Dados + "Código: " + ListaFuncionario[j].getCodigo() + "\n" + "Nome: " + ListaFuncionario[j].getNome() + "\n" + "---" + "\n";
+                switch (ListaFuncionario[j].getCategoria()) {
+                    case "Tecnico":
+                        Tecnico T = (Tecnico) ListaFuncionario[j];
+                        Dados = Dados + T.getDados();
+                        break;
+                    case "Docente efetivo":
+                        Efetivo E = (Efetivo) ListaFuncionario[j];
+                        Dados = Dados + E.getDados();
+                        break;
+                    case "Docente substituto":
+                        Substituto S = (Substituto) ListaFuncionario[j];
+                        Dados = Dados + S.getDados();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         return Dados;
@@ -97,7 +112,6 @@ public class Universidade {
             Funcionario ListaFuncionario[] = Departamentos[i].getListaFuncionario();
             for (int j = 0; j < Departamentos[i].getContador(); j++) {
                 if (ListaFuncionario[j].getCategoria().equals("Tecnico")) {
-//                    Dados = Dados + "Código: " + ListaFuncionario[j].getCodigo() + "\n" + "Nome: " + ListaFuncionario[j].getNome() + "\n" + "---" + "\n";
                     Tecnico T = (Tecnico) ListaFuncionario[j];
                     Dados = Dados + T.getDados();
                 }
@@ -113,7 +127,6 @@ public class Universidade {
             Funcionario ListaFuncionario[] = Departamentos[i].getListaFuncionario();
             for (int j = 0; j < Departamentos[i].getContador(); j++) {
                 if (ListaFuncionario[j].getCategoria().equals("Docente efetivo")) {
-//                    Dados = Dados + "Código: " + ListaFuncionario[j].getCodigo() + "\n" + "Nome: " + ListaFuncionario[j].getNome() + "\n" + "---" + "\n";
                     Efetivo E = (Efetivo) ListaFuncionario[j];
                     Dados = Dados + E.getDados();
                 }
