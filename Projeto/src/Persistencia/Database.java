@@ -16,10 +16,6 @@ public class Database {
     private int Maximo = 1000;
     private int Index;
 
-//    public Database() {
-//        Departamentos = new Departamento[Maximo];
-//        Index = 0;
-//    }
     public void adicionarDepartamento(Departamento NovoDepartamento) {
         if (Index < Maximo) {
             Departamentos[Index] = NovoDepartamento;
