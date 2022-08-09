@@ -322,7 +322,11 @@ public class Principal extends javax.swing.JFrame {
     private void InformacoesDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformacoesDepartamentoActionPerformed
         // TODO add your handling code here:
 //        Controle Controle = new Controle();
+        int Quantidade = Controle.getQuantidadeDepartameto();
         InformacoesDepartamento Informacoes = new InformacoesDepartamento(this, true);
+        for (int i = 0; i < Quantidade; i++) {
+            Informacoes.ListaDepartamento(Controle.getDepartamentoNome(i));
+        }
         Informacoes.setTitle("Informações de um departamento");
         Informacoes.setLocationRelativeTo(this);
         Informacoes.setVisible(true);
