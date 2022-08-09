@@ -29,7 +29,7 @@ public class Controle {
     }
 
     public String getDepartamentoNome(int Numero) {
-        return Universidade.getDepartamentoNome(Numero);
+        return Universidade.getNomeDepartamentoNumero(Numero);
     }
 
     public void cadastrarDocenteEfetivo(String codigo, String nome, double salario, String categoria, String nivel, String departamento, String titulacao, String area) {
@@ -42,7 +42,6 @@ public class Controle {
 
     public void cadastrarTecnico(String codigo, String nome, double salario, String categoria, String nivel, String funcao, String departamento) {
         Universidade.adicionarTecnico(codigo, nome, salario, categoria, nivel, funcao, departamento);
-        System.out.println("Execucao do controle para adicao de tecnico ");
     }
 
     public String exibirTodosFuncionarios() {
@@ -59,5 +58,9 @@ public class Controle {
 
     public String exibirTodosDocentesSubstitutos() {
         return Universidade.getDocentesSubstitutos();
+    }
+
+    public String exibirDepartamentoEspecifico(String Nome) {
+        return Universidade.getNomeDepartamentoNome(Nome);
     }
 }
