@@ -4,7 +4,7 @@
  */
 package Controle;
 
-import Banco.Banco;
+import Banco.Universidade;
 
 /**
  *
@@ -14,7 +14,7 @@ public class Controle {
 
     private int cont = 1000;
 
-    private Banco BancoDados = new Banco("Banco de Departamentos");
+    private static Universidade BancoDados = new Universidade("Departamentos universidade");
 
     public void adicionarDepartamento(String Codigo, String Nome) {
         BancoDados.adicionarDepartamento(Codigo, Nome);
@@ -23,4 +23,21 @@ public class Controle {
     public String exibirTodosDepartamentos() {
         return BancoDados.dadosTodosDepartamentos();
     }
+
+    public String exibirDepartamentos() {
+//        return BancoDados.
+    }
+
+    public void cadastrarDocenteEfetivo(String codigo, String nome, double salario, String categoria, String nivel, String titulacao, String area) {
+
+    }
+
+    public void cadastrarDocenteSubstituto() {
+
+    }
+
+    public void cadastrarTecnico() {
+
+    }
+
 }
