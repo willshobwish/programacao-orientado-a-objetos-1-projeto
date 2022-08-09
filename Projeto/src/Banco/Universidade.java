@@ -11,12 +11,12 @@ import Persistencia.Database;
  *
  * @author Willian
  */
-public class Banco {
+public class Universidade {
 
     private String Nome;
     private Database DatabaseDepartamento = new Database();
 
-    public Banco(String Nome) {
+    public Universidade(String Nome) {
         this.Nome = Nome;
     }
 
@@ -30,7 +30,7 @@ public class Banco {
         Departamento Departamentos[] = DatabaseDepartamento.getDepartamentos();
         int Quantidade = DatabaseDepartamento.getIndex();
         for (int Index = 0; Index < Quantidade; Index++) {
-            Dados = Dados + Departamentos[Index].getCodigo() + "\n" + Departamentos[Index].getNome() + "\n";
+            Dados = Dados + "Código do departamento: " + Departamentos[Index].getCodigo() + "\n" + "Nome do departamento: " + Departamentos[Index].getNome() + "\n" + "---";
         }
         return Dados;
     }
