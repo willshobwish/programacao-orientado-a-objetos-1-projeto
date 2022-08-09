@@ -19,9 +19,25 @@ public class Efetivo extends Docente {
 
     @Override
     double calcularSalario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return salario * 1.2;
+    }
+//Obtencao de dados
+
+    public String getDados() {
+        String Dados = """
+                       Código: %s
+                       Nome: %s
+                       Salário: %s
+                       Categoria: %s
+                       Nível: %s
+                       Titulação: %s
+                       Área: %s
+                       
+                       """.formatted(codigo, nome, Double.toString(salario), categoria, nivel, titulacao, area);
+        return Dados;
     }
 
+//    Getter e Setter
     public String getCodigo() {
         return codigo;
     }

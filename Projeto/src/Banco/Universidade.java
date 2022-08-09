@@ -113,7 +113,9 @@ public class Universidade {
             Funcionario ListaFuncionario[] = Departamentos[i].getListaFuncionario();
             for (int j = 0; j < Departamentos[i].getContador(); j++) {
                 if (ListaFuncionario[j].getCategoria().equals("Docente efetivo")) {
-                    Dados = Dados + "Código: " + ListaFuncionario[j].getCodigo() + "\n" + "Nome: " + ListaFuncionario[j].getNome() + "\n" + "---" + "\n";
+//                    Dados = Dados + "Código: " + ListaFuncionario[j].getCodigo() + "\n" + "Nome: " + ListaFuncionario[j].getNome() + "\n" + "---" + "\n";
+                    Efetivo E = (Efetivo) ListaFuncionario[j];
+                    Dados = Dados + E.getDados();
                 }
             }
         }
@@ -127,7 +129,8 @@ public class Universidade {
             Funcionario ListaFuncionario[] = Departamentos[i].getListaFuncionario();
             for (int j = 0; j < Departamentos[i].getContador(); j++) {
                 if (ListaFuncionario[j].getCategoria().equals("Docente substituto")) {
-                    Dados = Dados + "Código: " + ListaFuncionario[j].getCodigo() + "\n" + "Nome: " + ListaFuncionario[j].getNome() + "\n" + "---" + "\n";
+                    Substituto S = (Substituto) ListaFuncionario[j];
+                    Dados = Dados + S.getDados();
                 }
             }
         }
