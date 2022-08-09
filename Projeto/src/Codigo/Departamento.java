@@ -21,10 +21,6 @@ public class Departamento {
         this.nome = nome;
     }
 
-//    public Departamento() {
-//        ListaFuncionario = new Funcionario[maximo];
-//        int contador = 0;
-//    }
     public void adicionarFuncionario(Funcionario funcionarioObjeto) {
         if (contador < maximo) {
             ListaFuncionario[contador] = funcionarioObjeto;
@@ -46,28 +42,6 @@ public class Departamento {
     public void adicionarDocenteSubstituto(String codigo, String nome, double salario, String categoria, String nivel, String titulacao, int cargaHoraria) {
         Substituto DocenteSubstituto = new Substituto(codigo, nome, salario, categoria, nivel, titulacao, cargaHoraria);
         adicionarFuncionario(DocenteSubstituto);
-    }
-
-    public String getDados(int numero) {
-        switch (ListaFuncionario[numero].getCategoria().toString()) {
-            case "Docente efetivo":
-                Tecnico tecnico = (Tecnico) ListaFuncionario[numero];
-                String codigo = tecnico.getCodigo();
-                String nome = tecnico.getNome();
-                String salario = Double.toString(tecnico.getSalario());
-                String nivel = tecnico.getNivel();
-                String funcao = tecnico.getFuncao();
-                String info = """
-                      Codigo:%s
-                      Nome:%s
-                      Salario:%s
-                      Nivel:%s
-                      Funcao:%s
-                      """.formatted(codigo, nome, salario, nivel, funcao);
-                return info;
-            default:
-                throw new AssertionError();
-        }
     }
 
     public String getCodigo() {
