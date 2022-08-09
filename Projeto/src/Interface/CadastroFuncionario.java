@@ -10,12 +10,12 @@ import Controle.Controle;
  *
  * @author Willian
  */
-public class NovoCadastro extends javax.swing.JDialog {
+public class CadastroFuncionario extends javax.swing.JDialog {
 
     /**
      * Creates new form NovoCadastro
      */
-    public NovoCadastro(java.awt.Frame parent, boolean modal) {
+    public CadastroFuncionario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         FuncaoTitulacaoLabel.setVisible(false);
@@ -219,7 +219,6 @@ public class NovoCadastro extends javax.swing.JDialog {
                 String funcao = FuncaoTitulacaoJBox.getSelectedItem().toString();
                 Controle Controle = new Controle();
                 Controle.adicionarTecnicoControle(codigo, nome, salario, categoria, nivel, funcao);
-                Controle.Dados();
                 break;
             case "Docente efetivo":
                 break;
@@ -247,14 +246,22 @@ public class NovoCadastro extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NovoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NovoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NovoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NovoCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -267,7 +274,7 @@ public class NovoCadastro extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                NovoCadastro dialog = new NovoCadastro(new javax.swing.JFrame(), true);
+                CadastroFuncionario dialog = new CadastroFuncionario(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

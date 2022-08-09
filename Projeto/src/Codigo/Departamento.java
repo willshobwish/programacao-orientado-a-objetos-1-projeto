@@ -15,15 +15,19 @@ public class Departamento {
 //    private double salario;
 //    private String nivel;
 //    private String funcao;
-    private Funcionario ListaFuncionario[];
-    private int contador;
+    private Funcionario ListaFuncionario[] = new Funcionario[1000];
+    private int contador = 0;
     private int maximo = 1000;
 
-    public Departamento() {
-        ListaFuncionario = new Funcionario[maximo];
-        int contador = 0;
+    public Departamento(String codigo, String nome) {
+        this.codigo = codigo;
+        this.nome = nome;
     }
 
+//    public Departamento() {
+//        ListaFuncionario = new Funcionario[maximo];
+//        int contador = 0;
+//    }
     public void adicionarFuncionario(Funcionario funcionarioObjeto) {
         if (contador < maximo) {
             ListaFuncionario[contador] = funcionarioObjeto;

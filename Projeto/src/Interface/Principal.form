@@ -12,12 +12,21 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroActionPerformed"/>
           </Events>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="NovoCadastro">
+            <MenuItem class="javax.swing.JMenuItem" name="CadastroFuncionario">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Novo cadastro"/>
+                <Property name="actionCommand" type="java.lang.String" value="Novo cadastro de funcionario"/>
+                <Property name="label" type="java.lang.String" value="Novo cadastro de funcion&#xe1;rio"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NovoCadastroActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroFuncionarioActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="CadastroDepartamento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Novo cadastro de departamento"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroDepartamentoActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -39,6 +48,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Resumo dos departamentos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ResumoDepartamentoActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ResumoDepartamentoGasto">
               <Properties>
@@ -66,6 +78,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Todos os t&#xe9;cnicos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TodosTecnicosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="TodosDocentes">
               <Properties>

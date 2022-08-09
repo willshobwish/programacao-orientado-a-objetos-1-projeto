@@ -4,7 +4,7 @@
  */
 package Controle;
 
-import Codigo.Departamento;
+import Banco.Banco;
 
 /**
  *
@@ -12,27 +12,15 @@ import Codigo.Departamento;
  */
 public class Controle {
 
-    private String Codigo;
-    private String Nome;
-    private double Salario;
-    private String Categoria;
-    private String Nivel;
-    private Departamento Departamento = new Departamento();
+    private int cont = 1000;
 
-    public void adicionarTecnicoControle(String codigo, String nome, double salario, String categoria, String nivel, String funcao) {
-//        Tecnico T = new Tecnico(codigo, nome, salario, nivel, funcao);
-        Departamento.adicionarTecnico(codigo, nome, salario, categoria, nivel, funcao);
+    private Banco BancoDados = new Banco("Banco de Departamentos");
+
+    public void adicionarDepartamento(String Codigo, String Nome) {
+        BancoDados.adicionarDepartamento(Codigo, Nome);
     }
 
-    protected void adicionarDocenteSubstituoControle(String codigo, String nome, double salario, String categoria, String nivel, String titulacao, int cargaHoraria) {
-        Departamento.adicionarDocenteSubstituto(codigo, nome, salario, categoria, nivel, titulacao, cargaHoraria);
-    }
-
-    protected void adicionarDocenteEfetivoControle(String codigo, String nome, double salario, String categoria, String nivel, String titulacao, String area) {
-        Departamento.adicionarDocenteEfetivo(codigo, nome, salario, categoria, nivel, titulacao, area);
-    }
-
-    public void Dados() {
-
+    public String exibirTodosDepartamentos() {
+        return BancoDados.dadosTodosDepartamentos();
     }
 }

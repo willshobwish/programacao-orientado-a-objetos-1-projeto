@@ -4,6 +4,8 @@
  */
 package Interface;
 
+import Controle.Controle;
+
 /**
  *
  * @author Willian
@@ -28,7 +30,8 @@ public class Principal extends javax.swing.JFrame {
 
         BarraDeMenu = new javax.swing.JMenuBar();
         Cadastro = new javax.swing.JMenu();
-        NovoCadastro = new javax.swing.JMenuItem();
+        CadastroFuncionario = new javax.swing.JMenuItem();
+        CadastroDepartamento = new javax.swing.JMenuItem();
         Relatorio = new javax.swing.JMenu();
         Geral = new javax.swing.JMenuItem();
         ResumoDepartamento = new javax.swing.JMenuItem();
@@ -55,13 +58,22 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        NovoCadastro.setText("Novo cadastro");
-        NovoCadastro.addActionListener(new java.awt.event.ActionListener() {
+        CadastroFuncionario.setActionCommand("Novo cadastro de funcionario");
+        CadastroFuncionario.setLabel("Novo cadastro de funcionário");
+        CadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NovoCadastroActionPerformed(evt);
+                CadastroFuncionarioActionPerformed(evt);
             }
         });
-        Cadastro.add(NovoCadastro);
+        Cadastro.add(CadastroFuncionario);
+
+        CadastroDepartamento.setText("Novo cadastro de departamento");
+        CadastroDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastroDepartamentoActionPerformed(evt);
+            }
+        });
+        Cadastro.add(CadastroDepartamento);
 
         BarraDeMenu.add(Cadastro);
 
@@ -76,6 +88,11 @@ public class Principal extends javax.swing.JFrame {
         Relatorio.add(Geral);
 
         ResumoDepartamento.setText("Resumo dos departamentos");
+        ResumoDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResumoDepartamentoActionPerformed(evt);
+            }
+        });
         Relatorio.add(ResumoDepartamento);
 
         ResumoDepartamentoGasto.setText("Resumo dos departamentos com gasto em faixa específica");
@@ -92,6 +109,11 @@ public class Principal extends javax.swing.JFrame {
         Exibir.add(TodosFuncionarios);
 
         TodosTecnicos.setText("Todos os técnicos");
+        TodosTecnicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TodosTecnicosActionPerformed(evt);
+            }
+        });
         Exibir.add(TodosTecnicos);
 
         TodosDocentes.setText("Todos os docentes");
@@ -146,12 +168,35 @@ public class Principal extends javax.swing.JFrame {
         RelatorioInterface.setVisible(true);
     }//GEN-LAST:event_GeralActionPerformed
 
-    private void NovoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoCadastroActionPerformed
+    private void CadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroFuncionarioActionPerformed
         // TODO add your handling code here:
-        NovoCadastro NovoCadastroInterface = new NovoCadastro(this, true);
+        CadastroFuncionario NovoCadastroInterface = new CadastroFuncionario(this, true);
+        NovoCadastroInterface.setTitle("Novo cadastro de funcionário");
         NovoCadastroInterface.setLocationRelativeTo(this);
         NovoCadastroInterface.setVisible(true);
-    }//GEN-LAST:event_NovoCadastroActionPerformed
+    }//GEN-LAST:event_CadastroFuncionarioActionPerformed
+
+    private void TodosTecnicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosTecnicosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TodosTecnicosActionPerformed
+
+    private void CadastroDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroDepartamentoActionPerformed
+        // TODO add your handling code here:
+        CadastroDepartamento CadastroDepartamentoInterface = new CadastroDepartamento(this, true);
+        CadastroDepartamentoInterface.setTitle("Novo cadastro de departamento");
+        CadastroDepartamentoInterface.setLocationRelativeTo(this);
+        CadastroDepartamentoInterface.setVisible(true);
+    }//GEN-LAST:event_CadastroDepartamentoActionPerformed
+
+    private void ResumoDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResumoDepartamentoActionPerformed
+        // TODO add your handling code here:
+        Controle Controle = new Controle();
+        Exibir ExibitInterface = new Exibir(this, true);
+        ExibitInterface.alterarTexto(Controle.exibirTodosDepartamentos());
+        ExibitInterface.setTitle("Resumo dos departamentos");
+        ExibitInterface.setLocationRelativeTo(this);
+        ExibitInterface.setVisible(true);
+    }//GEN-LAST:event_ResumoDepartamentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,13 +236,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar BarraDeMenu;
     private javax.swing.JMenu Buscar;
     private javax.swing.JMenu Cadastro;
+    private javax.swing.JMenuItem CadastroDepartamento;
+    private javax.swing.JMenuItem CadastroFuncionario;
     private javax.swing.JMenu Exibir;
     private javax.swing.JMenuItem FuncionarioCodigo;
     private javax.swing.JMenuItem FuncionarioNome;
     private javax.swing.JMenuItem FuncionarioSalarioEspecifico;
     private javax.swing.JMenuItem Geral;
     private javax.swing.JMenuItem InformacoesDepartamento;
-    private javax.swing.JMenuItem NovoCadastro;
     private javax.swing.JMenu Relatorio;
     private javax.swing.JMenuItem ResumoDepartamento;
     private javax.swing.JMenuItem ResumoDepartamentoGasto;
