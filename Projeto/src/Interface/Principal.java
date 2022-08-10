@@ -26,9 +26,10 @@ public class Principal extends javax.swing.JFrame {
         InterfaceMenu.toFront();
 //        Geracao de departamento e funcionarios padrao
         Controle Controle = new Controle();
-        Controle.adicionarDepartamento("123456Dep", "Departamento Teste");
-        Controle.cadastrarDocenteEfetivo("docefe", "DocenteEfetivoNome", 200, "Docente Efetivo", "D1", "Departamento Teste", "Graduacao", "Biologicas");
-
+        Controle.adicionarDepartamento("CodigoDepartamento", "Departamento Teste");
+        Controle.cadastrarDocenteEfetivo("123", "DocenteEfetivoNome", 100, "Docente efetivo", "D1", "Departamento Teste", "Graduacao", "Biologicas");
+        Controle.cadastrarDocenteSubstituto("456", "DocenteSubstitutoNome", 100, "Docente substituto", "S1", "Departamento Teste", "Graduacao", 12);
+        Controle.cadastrarTecnico("789", "TecnicoNome", 100, "Tecnico", "T1", "Assesor", "Departamento Teste");
     }
     Controle Controle = new Controle();
 
@@ -117,6 +118,11 @@ public class Principal extends javax.swing.JFrame {
         Relatorio.add(ResumoDepartamentoGasto);
 
         FuncionarioSalarioEspecifico.setText("Funcionários com salário em faixa específica");
+        FuncionarioSalarioEspecifico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FuncionarioSalarioEspecificoActionPerformed(evt);
+            }
+        });
         Relatorio.add(FuncionarioSalarioEspecifico);
 
         BarraDeMenu.add(Relatorio);
@@ -223,12 +229,10 @@ public class Principal extends javax.swing.JFrame {
 
     private void CadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroFuncionarioActionPerformed
         // TODO add your handling code here:
-
         CadastroFuncionario NovoCadastroInterface = new CadastroFuncionario(this, true);
-//        Controle Controle = new Controle();
         int Quantidade = Controle.getQuantidadeDepartameto();
         for (int i = 0; i < Quantidade; i++) {
-            NovoCadastroInterface.ListaDepartamento(Controle.getDepartamentoNome(i));
+            NovoCadastroInterface.ListaDepartamento(Controle.getDepartamentoNomeNumero(i));
         }
         NovoCadastroInterface.setTitle("Novo cadastro de funcionário");
         NovoCadastroInterface.setLocationRelativeTo(this);
@@ -237,7 +241,6 @@ public class Principal extends javax.swing.JFrame {
 
     private void TodosTecnicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosTecnicosActionPerformed
         // TODO add your handling code here:
-//        Controle Controle = new Controle();
         ResumoDepartamento ExibitInterface = new ResumoDepartamento(this, true);
         ExibitInterface.setTitle("Todos os técnicos");
         ExibitInterface.alterarTexto("Todos os técnicos", Controle.exibirTodosTecnicos());
@@ -257,10 +260,8 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        Controle Controle = new Controle();
         ResumoDepartamento ExibitInterface = new ResumoDepartamento(this, true);
-        ExibitInterface.alterarTexto("Resumo dos departamentos", Controle.exibirTodosDepartamentos()
-        );
+        ExibitInterface.alterarTexto("Resumo dos departamentos", Controle.exibirTodosDepartamentos());
         ExibitInterface.setTitle("Resumo dos departamentos");
-
         ExibitInterface.setLocationRelativeTo(this);
         ExibitInterface.setVisible(true);
     }//GEN-LAST:event_ResumoDepartamentoActionPerformed
@@ -285,8 +286,6 @@ public class Principal extends javax.swing.JFrame {
 
     private void TodosFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosFuncionariosActionPerformed
         // TODO add your handling code here:
-
-//        Controle Controle = new Controle();
         ResumoDepartamento ExibitInterface = new ResumoDepartamento(this, true);
         ExibitInterface.alterarTexto("Todos os funcionários", Controle.exibirTodosFuncionarios());
         ExibitInterface.setTitle("Todos os funcionários");
@@ -297,16 +296,15 @@ public class Principal extends javax.swing.JFrame {
 
     private void TodosDocentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosDocentesActionPerformed
         // TODO add your handling code here:
-//        Controle Controle = new Controle();
         ResumoDepartamento ExibitInterface = new ResumoDepartamento(this, true);
         ExibitInterface.setTitle("Todos os docentes");
+        ExibitInterface.alterarTexto("Todos os docentes", Controle.exibirTodosDocentes());
         ExibitInterface.setLocationRelativeTo(this);
         ExibitInterface.setVisible(true);
     }//GEN-LAST:event_TodosDocentesActionPerformed
 
     private void TodosDocentesEfetivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosDocentesEfetivosActionPerformed
         // TODO add your handling code here:
-//        Controle Controle = new Controle();
         ResumoDepartamento ExibitInterface = new ResumoDepartamento(this, true);
         ExibitInterface.setTitle("Todos os docentes efetivos");
         ExibitInterface.alterarTexto("Todos os docentes efetivos", Controle.exibirTodosDocentesEfetivos());
@@ -316,7 +314,6 @@ public class Principal extends javax.swing.JFrame {
 
     private void TodosDocentesSubstitutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TodosDocentesSubstitutosActionPerformed
         // TODO add your handling code here:
-//        Controle Controle = new Controle();
         ResumoDepartamento ExibitInterface = new ResumoDepartamento(this, true);
         ExibitInterface.setTitle("Todos os docentes substitutos");
         ExibitInterface.alterarTexto("Todos os docentes substitutos", Controle.exibirTodosDocentesSubstitutos());
@@ -326,11 +323,10 @@ public class Principal extends javax.swing.JFrame {
 
     private void InformacoesDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformacoesDepartamentoActionPerformed
         // TODO add your handling code here:
-//        Controle Controle = new Controle();
         int Quantidade = Controle.getQuantidadeDepartameto();
         InformacoesDepartamento Informacoes = new InformacoesDepartamento(this, true);
         for (int i = 0; i < Quantidade; i++) {
-            Informacoes.ListaDepartamento(Controle.getDepartamentoNome(i));
+            Informacoes.ListaDepartamento(Controle.getDepartamentoNomeNumero(i));
         }
         Informacoes.setTitle("Informações de um departamento");
         Informacoes.setLocationRelativeTo(this);
@@ -339,11 +335,21 @@ public class Principal extends javax.swing.JFrame {
 
     private void ResumoDepartamentoGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResumoDepartamentoGastoActionPerformed
         // TODO add your handling code here:
-        ResumoDepartamentoBusca ResumoGasto = new ResumoDepartamentoBusca(this, true);
+        BuscaPorFaixaEspecifica ResumoGasto = new BuscaPorFaixaEspecifica(this, true);
         ResumoGasto.setTitle("Busca de departamento com gasto específico");
+        ResumoGasto.alterarExibicao("Busca de departamento com gasto específico");
         ResumoGasto.setLocationRelativeTo(this);
         ResumoGasto.setVisible(true);
     }//GEN-LAST:event_ResumoDepartamentoGastoActionPerformed
+
+    private void FuncionarioSalarioEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioSalarioEspecificoActionPerformed
+        // TODO add your handling code here:
+        BuscaPorFaixaEspecifica ResumoGasto = new BuscaPorFaixaEspecifica(this, true);
+        ResumoGasto.setTitle("Busca de funcionário com salário específico");
+        ResumoGasto.alterarExibicao("Busca de funcionário com salário específico");
+        ResumoGasto.setLocationRelativeTo(this);
+        ResumoGasto.setVisible(true);
+    }//GEN-LAST:event_FuncionarioSalarioEspecificoActionPerformed
 
     /**
      * @param args the command line arguments
