@@ -19,11 +19,16 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
     }
 
-    public static void main(String[] args) {;
+    public static void main(String[] args) {
         Interface.Principal InterfaceMenu = new Interface.Principal();
         InterfaceMenu.setVisible(true);
         InterfaceMenu.setTitle("Sistema faculdade");
         InterfaceMenu.toFront();
+//        Geracao de departamento e funcionarios padrao
+        Controle Controle = new Controle();
+        Controle.adicionarDepartamento("123456Dep", "Departamento Teste");
+        Controle.cadastrarDocenteEfetivo("docefe", "DocenteEfetivoNome", 200, "Docente Efetivo", "D1", "Departamento Teste", "Graduacao", "Biologicas");
+
     }
     Controle Controle = new Controle();
 
