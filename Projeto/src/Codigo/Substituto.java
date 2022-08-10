@@ -19,7 +19,17 @@ public class Substituto extends Docente {
 
     @Override
     double calcularSalario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        double salarioTemp = 0;
+        switch (nivel) {
+            case "S1":
+                salarioTemp = salario * 1.05;
+                break;
+            case "S2":
+                salarioTemp = salario * 1.1;
+                break;
+        }
+        return salarioTemp;
+
     }
 //Obtencao de dados
 
@@ -27,12 +37,13 @@ public class Substituto extends Docente {
         String Dados = """
                        Código: %s
                        Nome: %s
-                       Salário: %s
+                       Salário: %.2f
                        Categoria: %s
                        Nível: %s
                        Titulação: %s
-                       Carga Horária: %s
-                       """.formatted(codigo, nome, Double.toString(salario), categoria, nivel, titulacao, Integer.toString(cargaHoraria));
+                       Carga Horária: %dh
+
+                       """.formatted(codigo, nome, calcularSalario(), categoria, nivel, titulacao, cargaHoraria);
         return Dados;
     }
 

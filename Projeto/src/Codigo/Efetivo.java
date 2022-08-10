@@ -15,11 +15,25 @@ public class Efetivo extends Docente {
     public Efetivo(String codigo, String nome, double salario, String categoria, String nivel, String titulacao, String area) {
         super(codigo, nome, salario, categoria, nivel, titulacao);
         this.area = area;
+//        O docente efetivo possui um adicional de 5%
+        this.salario = salario * 1.05;
     }
 
     @Override
     double calcularSalario() {
-        return salario * 1.2;
+        double salarioTemp = 0;
+        switch (nivel) {
+            case "D1":
+                salarioTemp = salario * 1.05;
+                break;
+            case "D2":
+                salarioTemp = salario * 1.1;
+                break;
+            case "D3":
+                salarioTemp = salario * 1.2;
+                break;
+        }
+        return salarioTemp;
     }
 //Obtencao de dados
 
@@ -27,13 +41,13 @@ public class Efetivo extends Docente {
         String Dados = """
                        Código: %s
                        Nome: %s
-                       Salário: %s
+                       Salário: %.2f
                        Categoria: %s
                        Nível: %s
                        Titulação: %s
                        Área: %s
-                       
-                       """.formatted(codigo, nome, Double.toString(salario), categoria, nivel, titulacao, area);
+
+                       """.formatted(codigo, nome, calcularSalario(), categoria, nivel, titulacao, area);
         return Dados;
     }
 

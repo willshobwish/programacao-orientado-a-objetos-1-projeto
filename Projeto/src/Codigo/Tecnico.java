@@ -21,13 +21,27 @@ public class Tecnico extends Funcionario {
         String Dados = """
                        Código: %s
                        Nome: %s
-                       Salário: %s
+                       Salário: %.2f
                        Categoria: %s
                        Nível: %s
                        Função: %s
 
-                       """.formatted(codigo, nome, Double.toString(salario), categoria, nivel, funcao);
+                       """.formatted(codigo, nome, calcularSalario(), categoria, nivel, funcao);
         return Dados;
+    }
+
+    @Override
+    double calcularSalario() {
+        double salarioTemp = 0;
+        switch (nivel) {
+            case "T1":
+                salarioTemp = salario * 1.1;
+                break;
+            case "T2":
+                salarioTemp = salario * 1.2;
+                break;
+        }
+        return salarioTemp;
     }
 
     public String getFuncao() {
@@ -69,10 +83,4 @@ public class Tecnico extends Funcionario {
     public void setNivel(String nivel) {
         this.nivel = nivel;
     }
-
-    @Override
-    double calcularSalario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
 }
