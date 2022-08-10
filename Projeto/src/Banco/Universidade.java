@@ -63,17 +63,58 @@ public class Universidade {
         }
     }
 
+//    Calculo de salario total
+    public double calculoSalario(Funcionario Funcionario) {
+        double SalarioTotal = 0;
+        switch (Funcionario.getCategoria()) {
+            case "Tecnico":
+//Casting de objetos para acessar os metodos especificos
+                Tecnico T = (Tecnico) Funcionario;
+                SalarioTotal += T.getSalario();
+                break;
+            case "Docente efetivo":
+                Efetivo E = (Efetivo) Funcionario;
+                SalarioTotal += E.getSalario();
+                break;
+            case "Docente substituto":
+                Substituto S = (Substituto) Funcionario;
+                SalarioTotal += S.getSalario();
+                break;
+        }
+        return SalarioTotal;
+    }
+
 //Exibicao de objetos
     public String dadosTodosDepartamentos() {
         String Dados = "";
         double Salario = 0;
         for (int Index = 0; Index < Contador; Index++) {
+            Salario = 0;
+//            Pega um departamento para pegar os funcionarios
             Departamento DAtual = Departamentos[Index];
             Funcionario ListaFuncionario[] = DAtual.getListaFuncionario();
             for (int j = 0; j < DAtual.getContador(); j++) {
-                Salario += ListaFuncionario[j].getSalario();
+                Salario += calculoSalario(ListaFuncionario[j]);
+//                switch (ListaFuncionario[j].getCategoria()) {
+//                    case "Tecnico":
+////                        Casting de objetos para acessar os metodos especificos
+//                        Tecnico T = (Tecnico) ListaFuncionario[j];
+//                        break;
+//                    case "Docente efetivo":
+//                        Efetivo E = (Efetivo) ListaFuncionario[j];
+//                        break;
+//                    case "Docente substituto":
+//                        Substituto S = (Substituto) ListaFuncionario[j];
+//                        break;
+//                }
             }
-            Dados = Dados + "Código do departamento: " + DAtual.getCodigo() + "\n" + "Nome do departamento: " + DAtual.getNome() + "\n" + "Salario total: R$" + Salario + "\n" + "Quantidade total de funcionários: " + DAtual.getContador() + "\n" + "---" + "\n";
+            Dados = Dados + """
+                            Código do departamento: %s
+                            Nome do departamento: %s
+                            Salario total: R$%.2f
+                            Quantidade total de funcionários: %d
+
+                            """.formatted(DAtual.getCodigo(), DAtual.getNome(), Salario, DAtual.getContador());
         }
         return Dados;
     }
@@ -82,7 +123,7 @@ public class Universidade {
         String Dados = "Lista de funcionários:\n";
 //        Percorre o vetor de objetos de departamentos
         for (int i = 0; i < Contador; i++) {
-            Dados = Dados + "Departamento: " + Departamentos[i].getNome() + "\n";
+            Dados = Dados + "Nome do departamento: " + Departamentos[i].getNome() + "\n";
             Funcionario ListaFuncionario[] = Departamentos[i].getListaFuncionario();
             for (int j = 0; j < Departamentos[i].getContador(); j++) {
                 switch (ListaFuncionario[j].getCategoria()) {
@@ -98,8 +139,6 @@ public class Universidade {
                         Substituto S = (Substituto) ListaFuncionario[j];
                         Dados = Dados + S.getDados();
                         break;
-                    default:
-                        break;
                 }
             }
         }
@@ -109,7 +148,7 @@ public class Universidade {
     public String getTecnicos() {
         String Dados = "Lista de funcionários técnicos:\n";
         for (int i = 0; i < Contador; i++) {
-            Dados = Dados + "Departamento: " + Departamentos[i].getNome() + "\n";
+            Dados = Dados + "Nome do departamento: " + Departamentos[i].getNome() + "\n";
             Funcionario ListaFuncionario[] = Departamentos[i].getListaFuncionario();
             for (int j = 0; j < Departamentos[i].getContador(); j++) {
                 if (ListaFuncionario[j].getCategoria().equals("Tecnico")) {
@@ -121,10 +160,31 @@ public class Universidade {
         return Dados;
     }
 
+    public String getDocentes() {
+        String Dados = "Lista de docentes efetivos:\n";
+        for (int i = 0; i < Contador; i++) {
+            Dados = Dados + "Nome do departamento: " + Departamentos[i].getNome() + "\n";
+            Funcionario ListaFuncionario[] = Departamentos[i].getListaFuncionario();
+            for (int j = 0; j < Departamentos[i].getContador(); j++) {
+                switch (ListaFuncionario[j].getCategoria()) {
+                    case "Docente efetivo":
+                        Efetivo E = (Efetivo) ListaFuncionario[j];
+                        Dados = Dados + E.getDados();
+                        break;
+                    case "Docente substituto":
+                        Substituto S = (Substituto) ListaFuncionario[j];
+                        Dados = Dados + S.getDados();
+                        break;
+                }
+            }
+        }
+        return Dados;
+    }
+
     public String getDocentesEfetivos() {
         String Dados = "Lista de docentes efetivos\n";
         for (int i = 0; i < Contador; i++) {
-            Dados = Dados + "Departamento: " + Departamentos[i].getNome() + "\n";
+            Dados = Dados + "Nome do departamento: " + Departamentos[i].getNome() + "\n";
             Funcionario ListaFuncionario[] = Departamentos[i].getListaFuncionario();
             for (int j = 0; j < Departamentos[i].getContador(); j++) {
                 if (ListaFuncionario[j].getCategoria().equals("Docente efetivo")) {
@@ -139,7 +199,7 @@ public class Universidade {
     public String getDocentesSubstitutos() {
         String Dados = "Lista de docentes substitutos\n";
         for (int i = 0; i < Contador; i++) {
-            Dados = Dados + "Departamento: " + Departamentos[i].getNome() + "\n";
+            Dados = Dados + "Nome do departamento: " + Departamentos[i].getNome() + "\n";
             Funcionario ListaFuncionario[] = Departamentos[i].getListaFuncionario();
             for (int j = 0; j < Departamentos[i].getContador(); j++) {
                 if (ListaFuncionario[j].getCategoria().equals("Docente substituto")) {
@@ -159,22 +219,43 @@ public class Universidade {
         return Departamentos[Numero].getNome();
     }
 
-    public String getNomeDepartamentoNome(String Nome) {
-        Departamento DepartamentoBusca = null;
-        String Dados = "Lista de funcionários:\n";
+    public String getDepartamentoCodigoNumero(int Numero) {
+        return Departamentos[Numero].getCodigo();
+    }
+
+    public String getNomeDepartamentoCodigo(String Codigo) {
+        String Nome = "";
         for (int i = 0; i < Contador; i++) {
-            if (Departamentos[i].getNome().equals(Nome)) {
-                DepartamentoBusca = Departamentos[i];
+            if (Departamentos[i].getCodigo().equals(Codigo)) {
+                Nome = Departamentos[i].getNome();
             }
         }
-        int QuantidadeFuncionario = DepartamentoBusca.getContador();
-        for (int i = 0; i < QuantidadeFuncionario; i++) {
-            Dados = Dados
-                    + DepartamentoBusca.getCodigo()
-                    + "\n"
-                    + DepartamentoBusca.getNome()
-                    + "\n";
+        return Nome;
+    }
+
+    public String getExibirDepartamentoEspecifico(String Nome) {
+        Departamento ResultadoDepartamento = null;
+        double Salario = 0;
+        String Dados = "";
+        for (int i = 0; i < Contador; i++) {
+            if (Departamentos[i].getNome().equals(Nome)) {
+                ResultadoDepartamento = Departamentos[i];
+            }
         }
+        Dados = Dados + """
+                            Código do departamento: %s
+                            Nome do departamento: %s
+                            Lista de funcionários:
+                            """.formatted(ResultadoDepartamento.getCodigo(), ResultadoDepartamento.getNome());
+        int QuantidadeFuncionario = ResultadoDepartamento.getContador();
+        Funcionario ResultadoFuncionarios[] = ResultadoDepartamento.getListaFuncionario();
+        for (int i = 0; i < QuantidadeFuncionario; i++) {
+            Salario += calculoSalario(ResultadoFuncionarios[i]);
+            Dados = Dados + """
+                            Nome: %s
+                            """.formatted(ResultadoFuncionarios[i].getNome());
+        }
+        Dados = Dados + "Salário total: R$ " + Salario;
         return Dados;
     }
 }
