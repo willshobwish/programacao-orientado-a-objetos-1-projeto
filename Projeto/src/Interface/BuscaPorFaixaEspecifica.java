@@ -8,14 +8,19 @@ package Interface;
  *
  * @author Willian
  */
-public class ResumoDepartamentoBusca extends javax.swing.JDialog {
+public class BuscaPorFaixaEspecifica extends javax.swing.JDialog {
 
     /**
      * Creates new form ResumoDepartamentoBusca
      */
-    public ResumoDepartamentoBusca(java.awt.Frame parent, boolean modal) {
+    public BuscaPorFaixaEspecifica(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    public void alterarExibicao(String Titulo) {
+        Resultado.setVisible(false);
+        this.Titulo.setText(Titulo);
     }
 
     /**
@@ -30,7 +35,7 @@ public class ResumoDepartamentoBusca extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         Minimo = new javax.swing.JTextPane();
         Buscar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        Titulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -49,7 +54,7 @@ public class ResumoDepartamentoBusca extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setText("Busca de departamentos com faixa específica de gastos");
+        Titulo.setText("Busca de departamentos com faixa específica de gastos");
 
         jLabel2.setText("Mínimo");
 
@@ -72,7 +77,7 @@ public class ResumoDepartamentoBusca extends javax.swing.JDialog {
                     .addComponent(jScrollPane3)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(Titulo)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -89,7 +94,7 @@ public class ResumoDepartamentoBusca extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(Titulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -110,6 +115,7 @@ public class ResumoDepartamentoBusca extends javax.swing.JDialog {
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         // TODO add your handling code here:
+        Resultado.setVisible(true);
     }//GEN-LAST:event_BuscarActionPerformed
 
     /**
@@ -129,20 +135,21 @@ public class ResumoDepartamentoBusca extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResumoDepartamentoBusca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscaPorFaixaEspecifica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResumoDepartamentoBusca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscaPorFaixaEspecifica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResumoDepartamentoBusca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscaPorFaixaEspecifica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResumoDepartamentoBusca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscaPorFaixaEspecifica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ResumoDepartamentoBusca dialog = new ResumoDepartamentoBusca(new javax.swing.JFrame(), true);
+                BuscaPorFaixaEspecifica dialog = new BuscaPorFaixaEspecifica(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -159,7 +166,7 @@ public class ResumoDepartamentoBusca extends javax.swing.JDialog {
     private javax.swing.JTextPane Maximo;
     private javax.swing.JTextPane Minimo;
     private javax.swing.JTextArea Resultado;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel Titulo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
