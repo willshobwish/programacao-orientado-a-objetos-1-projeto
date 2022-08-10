@@ -222,7 +222,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void GeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeralActionPerformed
         // TODO add your handling code here:
-        Relatorio RelatorioInterface = new Relatorio(this, true);
+        Geral RelatorioInterface = new Geral(this, true);
         RelatorioInterface.setLocationRelativeTo(this);
         RelatorioInterface.setVisible(true);
     }//GEN-LAST:event_GeralActionPerformed
