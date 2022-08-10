@@ -79,7 +79,8 @@ public class Universidade {
     }
 
     public String getFuncionarios() {
-        String Dados = "Lista de funcionários\n";
+        String Dados = "Lista de funcionários:\n";
+//        Percorre o vetor de objetos de departamentos
         for (int i = 0; i < Contador; i++) {
             Dados = Dados + "Departamento: " + Departamentos[i].getNome() + "\n";
             Funcionario ListaFuncionario[] = Departamentos[i].getListaFuncionario();
