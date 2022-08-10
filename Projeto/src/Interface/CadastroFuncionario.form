@@ -26,28 +26,24 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jScrollPane3" pref="163" max="32767" attributes="0"/>
-                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jScrollPane3" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="CategoriaBox" alignment="0" max="32767" attributes="0"/>
-                      <Component id="NivelBox" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="CategoriaBox" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Cadastrar" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="FuncaoTitulacaoLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="FuncaoTitulacaoJBox" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="CargaHorariaAreaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="CargaHorariaAreaJBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Departamento" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="Departamento" alignment="0" max="32767" attributes="0"/>
+                  <Component id="NivelBox" alignment="0" max="32767" attributes="0"/>
+                  <Component id="FuncaoTitulacaoJBox" alignment="0" max="32767" attributes="0"/>
+                  <Component id="CargaHorariaAreaJBox" alignment="0" max="32767" attributes="0"/>
+                  <Component id="Cadastrar" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="189" max="32767" attributes="0"/>
           </Group>
@@ -90,7 +86,7 @@
               <Component id="CargaHorariaAreaJBox" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Cadastrar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="117" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

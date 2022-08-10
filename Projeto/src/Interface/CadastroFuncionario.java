@@ -118,26 +118,24 @@ public class CadastroFuncionario extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(CategoriaBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(NivelBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CategoriaBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
-                    .addComponent(Cadastrar)
                     .addComponent(FuncaoTitulacaoLabel)
-                    .addComponent(FuncaoTitulacaoJBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CargaHorariaAreaLabel)
-                    .addComponent(CargaHorariaAreaJBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Departamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(Departamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NivelBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(FuncaoTitulacaoJBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CargaHorariaAreaJBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(189, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -177,7 +175,7 @@ public class CadastroFuncionario extends javax.swing.JDialog {
                 .addComponent(CargaHorariaAreaJBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Cadastrar)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -190,43 +188,45 @@ public class CadastroFuncionario extends javax.swing.JDialog {
 
     private void CategoriaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriaBoxActionPerformed
         // TODO add your handling code here:
-        if (CategoriaBox.getSelectedItem().toString().equals("Selecione uma categoria")) {
-            NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecione uma categoria"}));
-            CargaHorariaAreaJBox.setVisible(false);
-            CargaHorariaAreaLabel.setVisible(false);
-            FuncaoTitulacaoLabel.setVisible(false);
-            FuncaoTitulacaoJBox.setVisible(false);
-        }
-        if (CategoriaBox.getSelectedItem().toString().equals("Tecnico")) {
-            NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"T1", "T2"}));
-            FuncaoTitulacaoLabel.setText("Função");
-            FuncaoTitulacaoJBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Assesor", "Laboratorio", "Secretario"}));
-            CargaHorariaAreaJBox.setVisible(false);
-            CargaHorariaAreaLabel.setVisible(false);
-            FuncaoTitulacaoLabel.setVisible(true);
-            FuncaoTitulacaoJBox.setVisible(true);
-        }
-        if (CategoriaBox.getSelectedItem().toString().equals("Docente efetivo")) {
-            NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"D1", "D2", "D3"}));
-            FuncaoTitulacaoJBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Graduacao", "Mestrado", "Doutorado", "Livre-docente"}));
-            FuncaoTitulacaoLabel.setText("Titulação");
-            CargaHorariaAreaLabel.setText("Área");
-            CargaHorariaAreaJBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Biologicas", "Exatas", "Humanas", "Saude"}));
-            CargaHorariaAreaJBox.setVisible(true);
-            CargaHorariaAreaLabel.setVisible(true);
-            FuncaoTitulacaoLabel.setVisible(true);
-            FuncaoTitulacaoJBox.setVisible(true);
-        }
-        if (CategoriaBox.getSelectedItem().toString().equals("Docente substituto")) {
-            NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"S1", "S2"}));
-            FuncaoTitulacaoJBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Graduacao", "Mestrado", "Doutorado", "Livre-docente"}));
-            FuncaoTitulacaoLabel.setText("Titulação");
-            CargaHorariaAreaLabel.setText("Carga horária");
-            CargaHorariaAreaJBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"12", "24"}));
-            CargaHorariaAreaJBox.setVisible(true);
-            CargaHorariaAreaLabel.setVisible(true);
-            FuncaoTitulacaoLabel.setVisible(true);
-            FuncaoTitulacaoJBox.setVisible(true);
+        switch (CategoriaBox.getSelectedItem().toString()) {
+            case "Selecione uma categoria":
+                NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecione uma categoria"}));
+                CargaHorariaAreaJBox.setVisible(false);
+                CargaHorariaAreaLabel.setVisible(false);
+                FuncaoTitulacaoLabel.setVisible(false);
+                FuncaoTitulacaoJBox.setVisible(false);
+                break;
+            case "Tecnico":
+                NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"T1", "T2"}));
+                FuncaoTitulacaoLabel.setText("Função");
+                FuncaoTitulacaoJBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Assesor", "Laboratorio", "Secretario"}));
+                CargaHorariaAreaJBox.setVisible(false);
+                CargaHorariaAreaLabel.setVisible(false);
+                FuncaoTitulacaoLabel.setVisible(true);
+                FuncaoTitulacaoJBox.setVisible(true);
+                break;
+            case "Docente efetivo":
+                NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"D1", "D2", "D3"}));
+                FuncaoTitulacaoJBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Graduacao", "Mestrado", "Doutorado", "Livre-docente"}));
+                FuncaoTitulacaoLabel.setText("Titulação");
+                CargaHorariaAreaLabel.setText("Área");
+                CargaHorariaAreaJBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Biologicas", "Exatas", "Humanas", "Saude"}));
+                CargaHorariaAreaJBox.setVisible(true);
+                CargaHorariaAreaLabel.setVisible(true);
+                FuncaoTitulacaoLabel.setVisible(true);
+                FuncaoTitulacaoJBox.setVisible(true);
+                break;
+            case "Docente substituto":
+                NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"S1", "S2"}));
+                FuncaoTitulacaoJBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Graduacao", "Mestrado", "Doutorado", "Livre-docente"}));
+                FuncaoTitulacaoLabel.setText("Titulação");
+                CargaHorariaAreaLabel.setText("Carga horária");
+                CargaHorariaAreaJBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"12", "24"}));
+                CargaHorariaAreaJBox.setVisible(true);
+                CargaHorariaAreaLabel.setVisible(true);
+                FuncaoTitulacaoLabel.setVisible(true);
+                FuncaoTitulacaoJBox.setVisible(true);
+                break;
         }
     }//GEN-LAST:event_CategoriaBoxActionPerformed
 
