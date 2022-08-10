@@ -37,7 +37,7 @@ public class Substituto extends Docente {
         String Dados = """
                        Código: %s
                        Nome: %s
-                       Salário: %.2f
+                       Salário: R$%.2f
                        Categoria: %s
                        Nível: %s
                        Titulação: %s
@@ -64,7 +64,7 @@ public class Substituto extends Docente {
     }
 
     public double getSalario() {
-        return salario;
+        return calcularSalario();
     }
 
     public void setSalario(double salario) {
