@@ -95,18 +95,6 @@ public class Universidade {
             Funcionario ListaFuncionario[] = DAtual.getListaFuncionario();
             for (int j = 0; j < DAtual.getContador(); j++) {
                 Salario += calculoSalario(ListaFuncionario[j]);
-//                switch (ListaFuncionario[j].getCategoria()) {
-//                    case "Tecnico":
-////                        Casting de objetos para acessar os metodos especificos
-//                        Tecnico T = (Tecnico) ListaFuncionario[j];
-//                        break;
-//                    case "Docente efetivo":
-//                        Efetivo E = (Efetivo) ListaFuncionario[j];
-//                        break;
-//                    case "Docente substituto":
-//                        Substituto S = (Substituto) ListaFuncionario[j];
-//                        break;
-//                }
             }
             Dados = Dados + """
                             Código do departamento: %s
