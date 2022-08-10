@@ -38,7 +38,7 @@ public class InformacoesDepartamento extends javax.swing.JDialog {
         Buscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        BarraBusca = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         Resultado = new javax.swing.JTextArea();
 
@@ -55,7 +55,7 @@ public class InformacoesDepartamento extends javax.swing.JDialog {
 
         jLabel2.setText("Código do departamento");
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(BarraBusca);
 
         Resultado.setEditable(false);
         Resultado.setColumns(20);
@@ -108,7 +108,22 @@ public class InformacoesDepartamento extends javax.swing.JDialog {
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         // TODO add your handling code here:
         Controle Controle = new Controle();
-        Resultado.setText(Controle.exibirDepartamentoEspecifico(BuscarLista.getSelectedItem().toString()));
+        Resultado.setText("");
+//        Quando o evento ocorre, busca as informacoes da barra, caso nao seja igual a "", utiliza a barra
+        if (!"".equals(BarraBusca.getText())) {
+            for (int i = 0; i < Controle.getQuantidadeDepartameto(); i++) {
+                if (Controle.getDepartamentoCodigoNumero(i).equals(BarraBusca.getText())) {
+//                    O metodo exibir departamento especifico tem como parametro o nome do departamento, para isso eh necessario de um outro metodo que retorne o nome do departamento conforme o codigo
+                    Resultado.setText(Controle.exibirDepartamentoEspecifico(Controle.getNomeDepartamentoCodigo(BarraBusca.getText())));
+                } else {
+                    Resultado.setText("Departamento não encontrado");
+                }
+            }
+//            Caso nao tenha nenhum caractere na barra de busca, ele utilizara o que esta selecionado na lista
+        } else {
+            Resultado.setText(Controle.exibirDepartamentoEspecifico(BuscarLista.getSelectedItem().toString()));
+        }
+        BarraBusca.setText("");
     }//GEN-LAST:event_BuscarActionPerformed
 
     /**
@@ -154,6 +169,7 @@ public class InformacoesDepartamento extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextPane BarraBusca;
     private javax.swing.JButton Buscar;
     private javax.swing.JComboBox<String> BuscarLista;
     private javax.swing.JTextArea Resultado;
@@ -161,6 +177,5 @@ public class InformacoesDepartamento extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }
