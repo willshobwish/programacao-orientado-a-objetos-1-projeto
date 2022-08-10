@@ -47,6 +47,10 @@ public class Controle {
         Universidade.adicionarTecnico(codigo, nome, salario, categoria, nivel, funcao, departamento);
     }
 
+    public String exibirGeral() {
+        return Universidade.getGeral();
+    }
+
     public String exibirTodosFuncionarios() {
         return Universidade.getFuncionarios();
     }
