@@ -11,6 +11,7 @@ import Banco.Universidade;
  * @author Willian
  */
 public class Controle {
+//Criacao do objeto estatico universidade
 
     private static Universidade Universidade = new Universidade("Departamentos da universidade");
 
@@ -26,8 +27,12 @@ public class Controle {
         return Universidade.getQuantidadeDepartamento();
     }
 
-    public String getDepartamentoNome(int Numero) {
+    public String getDepartamentoNomeNumero(int Numero) {
         return Universidade.getNomeDepartamentoNumero(Numero);
+    }
+
+    public String getDepartamentoCodigoNumero(int Numero) {
+        return Universidade.getDepartamentoCodigoNumero(Numero);
     }
 
     public void cadastrarDocenteEfetivo(String codigo, String nome, double salario, String categoria, String nivel, String departamento, String titulacao, String area) {
@@ -50,6 +55,10 @@ public class Controle {
         return Universidade.getTecnicos();
     }
 
+    public String exibirTodosDocentes() {
+        return Universidade.getDocentes();
+    }
+
     public String exibirTodosDocentesEfetivos() {
         return Universidade.getDocentesEfetivos();
     }
@@ -59,6 +68,10 @@ public class Controle {
     }
 
     public String exibirDepartamentoEspecifico(String Nome) {
-        return Universidade.getNomeDepartamentoNome(Nome);
+        return Universidade.getExibirDepartamentoEspecifico(Nome);
+    }
+
+    public String getNomeDepartamentoCodigo(String Codigo) {
+        return Universidade.getNomeDepartamentoCodigo(Codigo);
     }
 }
