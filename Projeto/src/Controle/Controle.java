@@ -78,4 +78,12 @@ public class Controle {
     public String getNomeDepartamentoCodigo(String Codigo) {
         return Universidade.getNomeDepartamentoCodigo(Codigo);
     }
+
+    public String buscarFaixaDepartamento(double Minimo, double Maximo) {
+        return Universidade.buscarFaixaDepartamentoString(Minimo, Maximo);
+    }
+
+    public String buscarFuncionarioString(double Minimo, double Maximo) {
+        return Universidade.buscarFuncionarioString(Minimo, Maximo);
+    }
 }
