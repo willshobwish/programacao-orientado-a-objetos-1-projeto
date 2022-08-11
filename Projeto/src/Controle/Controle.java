@@ -86,4 +86,11 @@ public class Controle {
     public String buscarFuncionarioString(double Minimo, double Maximo) {
         return Universidade.buscarFuncionarioString(Minimo, Maximo);
     }
+    
+    public String buscarFuncionarioCodigoString(String Codigo){
+        return Universidade.getFuncionarioBuscaCodigo(Codigo);
+    }
+    
+    public String buscarFuncionarioNomeString(String Nome){
+            return Universidade.getFuncionarioBuscaNome(Nome);}
 }

@@ -325,4 +325,40 @@ public class Universidade {
         }
         return Dados;
     }
+    
+    public String getFuncionarioBuscaCodigo(String Codigo){
+     Funcionario F[];
+     String Dados="";
+     for(int i=0;i<QuantidadeDepartamento;i++){
+         F = ListaDepartamentos[i].getListaFuncionario();
+         int QuantidadeFuncionario = ListaDepartamentos[i].getQuantidadeFuncionario();
+         for(int j=0;j<QuantidadeFuncionario;j++){
+             if(F[j].getCodigo().equals(Codigo)){
+                 Dados=getDadosFuncionarios(F[j]);
+             }
+         }
+     }
+     if(Dados.equals("")){
+         Dados = "Não foi encontrado o funcionário com o código especificado";
+     }
+     return Dados;
+    }
+    
+    public String getFuncionarioBuscaNome(String Nome){
+     Funcionario F[];
+     String Dados="";
+     for(int i=0;i<QuantidadeDepartamento;i++){
+         F = ListaDepartamentos[i].getListaFuncionario();
+         int QuantidadeFuncionario = ListaDepartamentos[i].getQuantidadeFuncionario();
+         for(int j=0;j<QuantidadeFuncionario;j++){
+             if(F[j].getNome().equals(Nome)){
+                 Dados=getDadosFuncionarios(F[j]);
+             }
+         }
+     }
+     if(Dados.equals("")){
+         Dados = "Não foi encontrado o funcionário com o nome especificado";
+     }
+     return Dados;
+    }
 }

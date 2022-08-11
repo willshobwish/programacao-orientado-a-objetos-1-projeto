@@ -4,6 +4,8 @@
  */
 package Interface;
 
+import Controle.Controle;
+
 /**
  *
  * @author Willian
@@ -34,7 +36,7 @@ public class BuscaNome extends javax.swing.JDialog {
 
         Buscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        BuscaTexto = new javax.swing.JTextPane();
         Titulo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         BuscaResultado = new javax.swing.JTextArea();
@@ -48,7 +50,7 @@ public class BuscaNome extends javax.swing.JDialog {
             }
         });
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(BuscaTexto);
 
         Titulo.setText("jLabel1");
 
@@ -91,6 +93,8 @@ public class BuscaNome extends javax.swing.JDialog {
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         // TODO add your handling code here:
+                Controle Controle = new Controle();
+        BuscaResultado.setText(Controle.buscarFuncionarioNomeString(BuscaTexto.getText()));
         BuscaResultado.setVisible(true);
     }//GEN-LAST:event_BuscarActionPerformed
 
@@ -139,10 +143,10 @@ public class BuscaNome extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea BuscaResultado;
+    private javax.swing.JTextPane BuscaTexto;
     private javax.swing.JButton Buscar;
     private javax.swing.JLabel Titulo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }
