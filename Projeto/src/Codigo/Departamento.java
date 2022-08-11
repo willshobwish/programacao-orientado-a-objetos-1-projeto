@@ -48,7 +48,7 @@ public class Departamento {
         return codigo;
     }
 
-    public int getContador() {
+    public int getQuantidadeFuncionario() {
         return contador;
     }
 
