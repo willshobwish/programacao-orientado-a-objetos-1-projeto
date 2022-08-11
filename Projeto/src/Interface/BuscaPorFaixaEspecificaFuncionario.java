@@ -4,16 +4,18 @@
  */
 package Interface;
 
+import Controle.Controle;
+
 /**
  *
  * @author Willian
  */
-public class BuscaPorFaixaEspecifica extends javax.swing.JDialog {
+public class BuscaPorFaixaEspecificaFuncionario extends javax.swing.JDialog {
 
     /**
      * Creates new form ResumoDepartamentoBusca
      */
-    public BuscaPorFaixaEspecifica(java.awt.Frame parent, boolean modal) {
+    public BuscaPorFaixaEspecificaFuncionario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -44,6 +46,7 @@ public class BuscaPorFaixaEspecifica extends javax.swing.JDialog {
         Resultado = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(400, 500));
 
         jScrollPane1.setViewportView(Minimo);
 
@@ -106,7 +109,7 @@ public class BuscaPorFaixaEspecifica extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Buscar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -115,7 +118,13 @@ public class BuscaPorFaixaEspecifica extends javax.swing.JDialog {
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         // TODO add your handling code here:
+        Controle Controle = new Controle();
+        double Minimo, Maximo;
+        Minimo = Double.parseDouble(this.Minimo.getText());
+        Maximo = Double.parseDouble(this.Maximo.getText());
+        Resultado.setText(Controle.buscarFuncionarioString(Minimo, Maximo));
         Resultado.setVisible(true);
+
     }//GEN-LAST:event_BuscarActionPerformed
 
     /**
@@ -135,21 +144,23 @@ public class BuscaPorFaixaEspecifica extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BuscaPorFaixaEspecifica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscaPorFaixaEspecificaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BuscaPorFaixaEspecifica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscaPorFaixaEspecificaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BuscaPorFaixaEspecifica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscaPorFaixaEspecificaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BuscaPorFaixaEspecifica.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscaPorFaixaEspecificaFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                BuscaPorFaixaEspecifica dialog = new BuscaPorFaixaEspecifica(new javax.swing.JFrame(), true);
+                BuscaPorFaixaEspecificaFuncionario dialog = new BuscaPorFaixaEspecificaFuncionario(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
