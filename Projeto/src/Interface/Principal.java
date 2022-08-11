@@ -269,8 +269,8 @@ public class Principal extends javax.swing.JFrame {
     private void FuncionarioCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioCodigoActionPerformed
         // TODO add your handling code here:
         BuscaCodigo BuscarInterface = new BuscaCodigo(this, true);
-        BuscarInterface.setTitle("Buscar pelo código");
-        BuscarInterface.Exibir("Buscar pelo código");
+        BuscarInterface.setTitle("Buscar funcionário pelo código");
+        BuscarInterface.Exibir("Buscar funcionário pelo código");
         BuscarInterface.setLocationRelativeTo(this);
         BuscarInterface.setVisible(true);
     }//GEN-LAST:event_FuncionarioCodigoActionPerformed
@@ -278,8 +278,8 @@ public class Principal extends javax.swing.JFrame {
     private void FuncionarioNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioNomeActionPerformed
         // TODO add your handling code here:
         BuscaNome BuscarInterface = new BuscaNome(this, true);
-        BuscarInterface.setTitle("Buscar pelo nome");
-        BuscarInterface.Exibir("Buscar pelo nome");
+        BuscarInterface.setTitle("Buscar funcionário pelo nome");
+        BuscarInterface.Exibir("Buscar funcionário pelo nome");
         BuscarInterface.setLocationRelativeTo(this);
         BuscarInterface.setVisible(true);
     }//GEN-LAST:event_FuncionarioNomeActionPerformed
@@ -335,7 +335,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void ResumoDepartamentoGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResumoDepartamentoGastoActionPerformed
         // TODO add your handling code here:
-        BuscaPorFaixaEspecifica ResumoGasto = new BuscaPorFaixaEspecifica(this, true);
+        BuscaPorFaixaEspecificaDepartamento ResumoGasto = new BuscaPorFaixaEspecificaDepartamento(this, true);
         ResumoGasto.setTitle("Busca de departamento com gasto específico");
         ResumoGasto.alterarExibicao("Busca de departamento com gasto específico");
         ResumoGasto.setLocationRelativeTo(this);
@@ -344,7 +344,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void FuncionarioSalarioEspecificoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioSalarioEspecificoActionPerformed
         // TODO add your handling code here:
-        BuscaPorFaixaEspecifica ResumoGasto = new BuscaPorFaixaEspecifica(this, true);
+        BuscaPorFaixaEspecificaFuncionario ResumoGasto = new BuscaPorFaixaEspecificaFuncionario(this, true);
         ResumoGasto.setTitle("Busca de funcionário com salário específico");
         ResumoGasto.alterarExibicao("Busca de funcionário com salário específico");
         ResumoGasto.setLocationRelativeTo(this);
