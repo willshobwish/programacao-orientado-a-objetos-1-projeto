@@ -278,9 +278,11 @@ public class Universidade {
         return Dados;
     }
 
-    public Departamento buscarFaixaDepartamento(double Minimo, double Maximo) {
+    public Departamento[] buscarFaixaDepartamento(double Minimo, double Maximo) {
         double SalarioTotal;
-        Departamento Departamento = null;
+        Departamento Departamento[] = new Departamento[1000];
+//        Departamento[] Departamento = null;
+        int Contador = 0;
         for (int i = 0; i < QuantidadeDepartamento; i++) {
             Funcionario ListaFuncionario[] = ListaDepartamentos[i].getListaFuncionario();
             SalarioTotal = 0;
@@ -288,7 +290,8 @@ public class Universidade {
                 SalarioTotal += calculoSalario(ListaFuncionario[j]);
             }
             if (SalarioTotal > Minimo && SalarioTotal < Maximo) {
-                Departamento = ListaDepartamentos[i];
+                Departamento[Contador] = ListaDepartamentos[i];
+                Contador++;
             } else {
                 Departamento = null;
             }
@@ -298,14 +301,16 @@ public class Universidade {
 
     public String buscarFaixaDepartamentoString(double Minimo, double Maximo) {
         String Dados = "";
-        Departamento D = buscarFaixaDepartamento(Minimo, Maximo);
+        Departamento D[] = null;
+        D = buscarFaixaDepartamento(Minimo, Maximo);
         if (D != null) {
-            Funcionario ListaFuncionario[] = D.getListaFuncionario();
-            for (int i = 0; i < D.getQuantidadeFuncionario(); i++) {
-                Dados = Dados + getDadosFuncionarios(ListaFuncionario[i]);
+            for (int i = 0; i < D.length; i++) {
+                if (D[i] != null) {
+                    Dados = Dados + getExibirDepartamentoEspecifico(D[i].getNome());
+                }
             }
         } else {
-            Dados = "Departamento com faixa especificada não encontrado";
+            Dados = "Nenhum departamento foi encontrado";
         }
         return Dados;
     }
@@ -321,44 +326,44 @@ public class Universidade {
             }
         }
         if (Dados.equals("")) {
-            Dados = "Nenhum funcionário foi encontrado com essa faixa de salário especificado";
+            Dados = "Nenhum funcionário foi encontrado";
         }
         return Dados;
     }
-    
-    public String getFuncionarioBuscaCodigo(String Codigo){
-     Funcionario F[];
-     String Dados="";
-     for(int i=0;i<QuantidadeDepartamento;i++){
-         F = ListaDepartamentos[i].getListaFuncionario();
-         int QuantidadeFuncionario = ListaDepartamentos[i].getQuantidadeFuncionario();
-         for(int j=0;j<QuantidadeFuncionario;j++){
-             if(F[j].getCodigo().equals(Codigo)){
-                 Dados=getDadosFuncionarios(F[j]);
-             }
-         }
-     }
-     if(Dados.equals("")){
-         Dados = "Não foi encontrado o funcionário com o código especificado";
-     }
-     return Dados;
+
+    public String getFuncionarioBuscaCodigo(String Codigo) {
+        Funcionario F[];
+        String Dados = "";
+        for (int i = 0; i < QuantidadeDepartamento; i++) {
+            F = ListaDepartamentos[i].getListaFuncionario();
+            int QuantidadeFuncionario = ListaDepartamentos[i].getQuantidadeFuncionario();
+            for (int j = 0; j < QuantidadeFuncionario; j++) {
+                if (F[j].getCodigo().equals(Codigo)) {
+                    Dados = getDadosFuncionarios(F[j]);
+                }
+            }
+        }
+        if (Dados.equals("")) {
+            Dados = "Não foi encontrado o funcionário com o código especificado";
+        }
+        return Dados;
     }
-    
-    public String getFuncionarioBuscaNome(String Nome){
-     Funcionario F[];
-     String Dados="";
-     for(int i=0;i<QuantidadeDepartamento;i++){
-         F = ListaDepartamentos[i].getListaFuncionario();
-         int QuantidadeFuncionario = ListaDepartamentos[i].getQuantidadeFuncionario();
-         for(int j=0;j<QuantidadeFuncionario;j++){
-             if(F[j].getNome().equals(Nome)){
-                 Dados=getDadosFuncionarios(F[j]);
-             }
-         }
-     }
-     if(Dados.equals("")){
-         Dados = "Não foi encontrado o funcionário com o nome especificado";
-     }
-     return Dados;
+
+    public String getFuncionarioBuscaNome(String Nome) {
+        Funcionario F[];
+        String Dados = "";
+        for (int i = 0; i < QuantidadeDepartamento; i++) {
+            F = ListaDepartamentos[i].getListaFuncionario();
+            int QuantidadeFuncionario = ListaDepartamentos[i].getQuantidadeFuncionario();
+            for (int j = 0; j < QuantidadeFuncionario; j++) {
+                if (F[j].getNome().equals(Nome)) {
+                    Dados = getDadosFuncionarios(F[j]);
+                }
+            }
+        }
+        if (Dados.equals("")) {
+            Dados = "Não foi encontrado o funcionário com o nome especificado";
+        }
+        return Dados;
     }
 }
