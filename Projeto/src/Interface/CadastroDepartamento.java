@@ -102,6 +102,7 @@ public class CadastroDepartamento extends javax.swing.JDialog {
         Controle Controle = new Controle();
         Controle.adicionarDepartamento(CadastroDepartamentoCodigo.getText(), CadastroDepartamentoNome.getText());
         System.out.println(Controle.exibirTodosDepartamentos());
+
     }//GEN-LAST:event_CadastroDepartamentoActionPerformed
 
     /**
