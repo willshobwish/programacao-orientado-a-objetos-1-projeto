@@ -4,12 +4,12 @@
  */
 package Manipulacao;
 
+import Armazenamento.Database;
 import Modelo.Departamento;
 import Modelo.Efetivo;
 import Modelo.Funcionario;
 import Modelo.Substituto;
 import Modelo.Tecnico;
-import Armazenamento.Database;
 
 /**
  *
@@ -384,5 +384,30 @@ public class Universidade {
 
     public int getQuantidadeDepartamento() {
         return Database.getContadorDepartamento();
+    }
+
+    public boolean codigoRepetidoDepartamento(String Codigo) {
+        boolean Repeticao = false;
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
+            if (ListaDepartamentos[i].getCodigo().equals(Codigo)) {
+                Repeticao = true;
+            }
+        }
+        return Repeticao;
+    }
+
+    public boolean codigoRepetidoFuncionario(String Codigo) {
+        boolean Repetido = false;
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
+            Funcionario ListaFuncionarios[] = ListaDepartamentos[i].getListaFuncionario();
+            for (int j = 0; j < ListaDepartamentos[i].getQuantidadeFuncionario(); j++) {
+                if (ListaFuncionarios[j].getCodigo().equals(Codigo)) {
+                    Repetido = true;
+                }
+            }
+        }
+        return Repetido;
     }
 }

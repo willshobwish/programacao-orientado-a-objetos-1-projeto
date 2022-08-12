@@ -22,11 +22,15 @@ public class CadastroFuncionario extends javax.swing.JDialog {
         FuncaoTitulacaoJBox.setVisible(false);
         CargaHorariaAreaJBox.setVisible(false);
         CargaHorariaAreaLabel.setVisible(false);
+        CadastroRepetido.setText("Digite o código");
+        Cadastrar.setEnabled(false);
+        CadastroSucesso.setVisible(false);
     }
 
     public void ListaDepartamento(String Item) {
         Departamento.addItem(Item);
     }
+    Controle Controle = new Controle();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,6 +61,8 @@ public class CadastroFuncionario extends javax.swing.JDialog {
         CargaHorariaAreaJBox = new javax.swing.JComboBox<>();
         Departamento = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
+        CadastroRepetido = new javax.swing.JLabel();
+        CadastroSucesso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo cadastro");
@@ -68,17 +74,30 @@ public class CadastroFuncionario extends javax.swing.JDialog {
             }
         });
 
-        NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione uma categoria" }));
+        NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um nível" }));
         NivelBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NivelBoxActionPerformed(evt);
             }
         });
 
+        Codigo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                CodigoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                CodigoFocusLost(evt);
+            }
+        });
         jScrollPane1.setViewportView(Codigo);
 
         jScrollPane2.setViewportView(Nome);
 
+        Salario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                SalarioFocusLost(evt);
+            }
+        });
         jScrollPane3.setViewportView(Salario);
 
         jLabel1.setText("Código");
@@ -112,31 +131,43 @@ public class CadastroFuncionario extends javax.swing.JDialog {
 
         jLabel6.setText("Departamento");
 
+        CadastroRepetido.setText("jLabel7");
+
+        CadastroSucesso.setText("jLabel7");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(CategoriaBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(FuncaoTitulacaoLabel)
-                    .addComponent(CargaHorariaAreaLabel)
-                    .addComponent(jLabel6)
-                    .addComponent(Departamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(NivelBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(FuncaoTitulacaoJBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CargaHorariaAreaJBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Cadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPane2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel2)
+                                .addComponent(CategoriaBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel4)
+                                .addComponent(FuncaoTitulacaoLabel)
+                                .addComponent(CargaHorariaAreaLabel)
+                                .addComponent(jLabel6)
+                                .addComponent(Departamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(NivelBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(FuncaoTitulacaoJBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(CargaHorariaAreaJBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(59, 123, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CadastroRepetido)
+                            .addComponent(CadastroSucesso))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,6 +176,8 @@ public class CadastroFuncionario extends javax.swing.JDialog {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CadastroRepetido)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -175,7 +208,9 @@ public class CadastroFuncionario extends javax.swing.JDialog {
                 .addComponent(CargaHorariaAreaJBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Cadastrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CadastroSucesso)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
@@ -190,7 +225,7 @@ public class CadastroFuncionario extends javax.swing.JDialog {
         // TODO add your handling code here:
         switch (CategoriaBox.getSelectedItem().toString()) {
             case "Selecione uma categoria":
-                NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecione uma categoria"}));
+                NivelBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Selecione um nível"}));
                 CargaHorariaAreaJBox.setVisible(false);
                 CargaHorariaAreaLabel.setVisible(false);
                 FuncaoTitulacaoLabel.setVisible(false);
@@ -234,7 +269,7 @@ public class CadastroFuncionario extends javax.swing.JDialog {
         String codigo, nome, categoria, nivel, funcao, area, titulacao;
         int cargaHoraria;
         double salario;
-        Controle Controle = new Controle();
+
         switch (CategoriaBox.getSelectedItem().toString()) {
             case "Tecnico":
                 codigo = Codigo.getText();
@@ -265,14 +300,41 @@ public class CadastroFuncionario extends javax.swing.JDialog {
                 cargaHoraria = Integer.parseInt(CargaHorariaAreaJBox.getSelectedItem().toString());
                 Controle.cadastrarDocenteSubstituto(codigo, nome, salario, categoria, nivel, Departamento.getSelectedItem().toString(), titulacao, cargaHoraria);
                 break;
-            default:
-                throw new AssertionError();
         }
+        CadastroSucesso.setText("Funcionário cadastrado com sucesso");
+        CadastroSucesso.setVisible(true);
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void DepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepartamentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_DepartamentoActionPerformed
+
+    private void CodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CodigoFocusLost
+        // TODO add your handling code here:
+        if (Controle.codigoRepetidoFuncionario(Codigo.getText()) || Codigo.getText().equals("")) {
+            CadastroRepetido.setText("Código indisponível");
+            Cadastrar.setEnabled(false);
+        } else {
+            CadastroRepetido.setText("Código disponível");
+            Cadastrar.setEnabled(true);
+        }
+    }//GEN-LAST:event_CodigoFocusLost
+
+    private void SalarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SalarioFocusLost
+        // TODO add your handling code here:
+//        if (!Salario.getText().matches("[0-9.]+")) {;
+//            Cadastrar.setEnabled(false);
+//            Cadastrar.setText("Salário inválido");
+//        } else {
+//            Cadastrar.setEnabled(true);
+//            Cadastrar.setText("Cadastrar");
+//        }
+    }//GEN-LAST:event_SalarioFocusLost
+
+    private void CodigoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CodigoFocusGained
+        // TODO add your handling code here:
+        CadastroSucesso.setVisible(false);
+    }//GEN-LAST:event_CodigoFocusGained
 
     /**
      * @param args the command line arguments
@@ -333,6 +395,8 @@ public class CadastroFuncionario extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cadastrar;
+    private javax.swing.JLabel CadastroRepetido;
+    private javax.swing.JLabel CadastroSucesso;
     private javax.swing.JComboBox<String> CargaHorariaAreaJBox;
     private javax.swing.JLabel CargaHorariaAreaLabel;
     private javax.swing.JComboBox<String> CategoriaBox;

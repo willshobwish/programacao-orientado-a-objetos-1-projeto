@@ -18,7 +18,10 @@ public class CadastroDepartamento extends javax.swing.JDialog {
     public CadastroDepartamento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        Sucesso.setVisible(false);
+        CadastroDepartamento.setEnabled(false);
     }
+    Controle Controle = new Controle();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,6 +39,7 @@ public class CadastroDepartamento extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         CadastroDepartamentoNome = new javax.swing.JTextPane();
         CadastroDepartamento = new javax.swing.JButton();
+        Sucesso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -59,6 +63,8 @@ public class CadastroDepartamento extends javax.swing.JDialog {
             }
         });
 
+        Sucesso.setText("Departamento cadastrado");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -66,12 +72,14 @@ public class CadastroDepartamento extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(CadastroDepartamento))
-                .addContainerGap(246, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2)
+                        .addComponent(CadastroDepartamento)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2))
+                    .addComponent(Sucesso))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +94,9 @@ public class CadastroDepartamento extends javax.swing.JDialog {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CadastroDepartamento)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Sucesso)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -94,15 +104,23 @@ public class CadastroDepartamento extends javax.swing.JDialog {
 
     private void CadastroDepartamentoCodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CadastroDepartamentoCodigoFocusLost
         // TODO add your handling code here:
+        if (Controle.codigoRepetidoDepartamento(CadastroDepartamentoCodigo.getText()) || CadastroDepartamentoCodigo.getText().equals("")) {
+            CadastroDepartamento.setEnabled(false);
+            Sucesso.setText("Código indisponível");
+            Sucesso.setVisible(true);
+        } else {
+            CadastroDepartamento.setEnabled(true);
+            Sucesso.setVisible(false);
+        }
 
     }//GEN-LAST:event_CadastroDepartamentoCodigoFocusLost
 
     private void CadastroDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroDepartamentoActionPerformed
         // TODO add your handling code here:
-        Controle Controle = new Controle();
         Controle.adicionarDepartamento(CadastroDepartamentoCodigo.getText(), CadastroDepartamentoNome.getText());
         System.out.println(Controle.exibirTodosDepartamentos());
-
+        Sucesso.setText("Departamento cadastrado com sucesso");
+        Sucesso.setVisible(true);
     }//GEN-LAST:event_CadastroDepartamentoActionPerformed
 
     /**
@@ -151,6 +169,7 @@ public class CadastroDepartamento extends javax.swing.JDialog {
     private javax.swing.JButton CadastroDepartamento;
     private javax.swing.JTextPane CadastroDepartamentoCodigo;
     private javax.swing.JTextPane CadastroDepartamentoNome;
+    private javax.swing.JLabel Sucesso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
