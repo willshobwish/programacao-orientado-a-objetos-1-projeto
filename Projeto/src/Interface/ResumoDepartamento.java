@@ -40,6 +40,7 @@ public class ResumoDepartamento extends javax.swing.JDialog {
 
         ExibirText.setEditable(false);
         ExibirText.setColumns(20);
+        ExibirText.setLineWrap(true);
         ExibirText.setRows(5);
         jScrollPane1.setViewportView(ExibirText);
 

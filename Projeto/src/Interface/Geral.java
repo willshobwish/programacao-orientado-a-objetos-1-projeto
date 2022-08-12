@@ -43,6 +43,7 @@ public class Geral extends javax.swing.JDialog {
 
         Resultado.setEditable(false);
         Resultado.setColumns(20);
+        Resultado.setLineWrap(true);
         Resultado.setRows(5);
         jScrollPane1.setViewportView(Resultado);
 

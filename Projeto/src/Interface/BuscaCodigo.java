@@ -55,6 +55,7 @@ public class BuscaCodigo extends javax.swing.JDialog {
         Titulo.setText("jLabel1");
 
         BuscaResultado.setColumns(20);
+        BuscaResultado.setLineWrap(true);
         BuscaResultado.setRows(5);
         jScrollPane2.setViewportView(BuscaResultado);
 

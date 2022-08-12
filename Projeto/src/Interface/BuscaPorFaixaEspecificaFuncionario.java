@@ -69,6 +69,7 @@ public class BuscaPorFaixaEspecificaFuncionario extends javax.swing.JDialog {
 
         Resultado.setEditable(false);
         Resultado.setColumns(20);
+        Resultado.setLineWrap(true);
         Resultado.setRows(5);
         jScrollPane3.setViewportView(Resultado);
 

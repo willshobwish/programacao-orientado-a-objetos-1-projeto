@@ -55,6 +55,7 @@ public class BuscaNome extends javax.swing.JDialog {
         Titulo.setText("jLabel1");
 
         BuscaResultado.setColumns(20);
+        BuscaResultado.setLineWrap(true);
         BuscaResultado.setRows(5);
         jScrollPane2.setViewportView(BuscaResultado);
 
@@ -93,7 +94,7 @@ public class BuscaNome extends javax.swing.JDialog {
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         // TODO add your handling code here:
-                Controle Controle = new Controle();
+        Controle Controle = new Controle();
         BuscaResultado.setText(Controle.buscarFuncionarioNomeString(BuscaTexto.getText()));
         BuscaResultado.setVisible(true);
     }//GEN-LAST:event_BuscarActionPerformed

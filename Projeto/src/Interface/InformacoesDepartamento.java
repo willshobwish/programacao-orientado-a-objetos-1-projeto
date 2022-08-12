@@ -59,6 +59,7 @@ public class InformacoesDepartamento extends javax.swing.JDialog {
 
         Resultado.setEditable(false);
         Resultado.setColumns(20);
+        Resultado.setLineWrap(true);
         Resultado.setRows(5);
         jScrollPane2.setViewportView(Resultado);
 
