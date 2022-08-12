@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Codigo;
+package Modelo;
 
 /**
  *
@@ -14,16 +14,16 @@ public class Departamento {
     private String nome;
     private Funcionario ListaFuncionario[];
     private int ContadorFuncionario = 0;
-    private int maximo = 1000;
+    private int Maximo = 1000;
 
     public Departamento(String codigo, String nome) {
         this.codigo = codigo;
         this.nome = nome;
-        ListaFuncionario = new Funcionario[maximo];
+        ListaFuncionario = new Funcionario[Maximo];
     }
 
     public void adicionarFuncionario(Funcionario NovoFuncionario) {
-        if (ContadorFuncionario < maximo) {
+        if (ContadorFuncionario < Maximo) {
             ListaFuncionario[ContadorFuncionario] = NovoFuncionario;
             ContadorFuncionario++;
         }

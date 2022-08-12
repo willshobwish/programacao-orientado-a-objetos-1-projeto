@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Banco;
+package Manipulacao;
 
-import Codigo.Departamento;
-import Codigo.Efetivo;
-import Codigo.Funcionario;
-import Codigo.Substituto;
-import Codigo.Tecnico;
-import Persistencia.Database;
+import Modelo.Departamento;
+import Modelo.Efetivo;
+import Modelo.Funcionario;
+import Modelo.Substituto;
+import Modelo.Tecnico;
+import Armazenamento.Database;
 
 /**
  *

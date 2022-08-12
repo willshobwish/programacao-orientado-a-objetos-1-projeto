@@ -4,7 +4,7 @@
  */
 package Controle;
 
-import Banco.Universidade;
+import Manipulacao.Universidade;
 
 /**
  *
