@@ -48,6 +48,7 @@ public class BuscaPorFaixaEspecificaFuncionario extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(400, 500));
 
+        Minimo.setText("0");
         jScrollPane1.setViewportView(Minimo);
 
         Buscar.setText("Buscar");
@@ -63,6 +64,7 @@ public class BuscaPorFaixaEspecificaFuncionario extends javax.swing.JDialog {
 
         jLabel3.setText("Máximo");
 
+        Maximo.setText("0");
         jScrollPane2.setViewportView(Maximo);
 
         Resultado.setEditable(false);
