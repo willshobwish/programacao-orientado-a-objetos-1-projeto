@@ -12,19 +12,20 @@ public class Departamento {
 
     private String codigo;
     private String nome;
-    private Funcionario ListaFuncionario[] = new Funcionario[1000];
-    private int contador = 0;
+    private Funcionario ListaFuncionario[];
+    private int ContadorFuncionario = 0;
     private int maximo = 1000;
 
     public Departamento(String codigo, String nome) {
         this.codigo = codigo;
         this.nome = nome;
+        ListaFuncionario = new Funcionario[maximo];
     }
 
-    public void adicionarFuncionario(Funcionario funcionarioObjeto) {
-        if (contador < maximo) {
-            ListaFuncionario[contador] = funcionarioObjeto;
-            contador++;
+    public void adicionarFuncionario(Funcionario NovoFuncionario) {
+        if (ContadorFuncionario < maximo) {
+            ListaFuncionario[ContadorFuncionario] = NovoFuncionario;
+            ContadorFuncionario++;
         }
     }
 
@@ -49,7 +50,7 @@ public class Departamento {
     }
 
     public int getQuantidadeFuncionario() {
-        return contador;
+        return ContadorFuncionario;
     }
 
     public void setCodigo(String codigo) {
