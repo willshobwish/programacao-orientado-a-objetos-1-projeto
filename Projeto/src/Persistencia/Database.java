@@ -12,7 +12,7 @@ import Codigo.Departamento;
  */
 public class Database {
 
-    private Departamento Departamentos[] = new Departamento[1000];
+    private Departamento Departamentos[];
     private int Maximo;
     private int Contador;
 
