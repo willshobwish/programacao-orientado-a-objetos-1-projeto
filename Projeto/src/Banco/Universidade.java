@@ -31,10 +31,14 @@ public class Universidade {
             Database.adicionarDepartamento(new Departamento(Codigo, Nome));
         }
     }
+//    Adicao de funcionarios dependendo da categoria e do departamento
+//    Um dos parametros necessario eh em que departamento sera inserido o funcionario
 
     public void adicionarTecnico(String codigo, String nome, double salario, String categoria, String nivel, String funcao, String departamento) {
         Tecnico Tecnico = new Tecnico(codigo, nome, salario, categoria, nivel, funcao);
+//        Recuperacao da lista de departamentos existentes e criados
         Departamento ListaDepartamentos[] = Database.getDepartamentos();
+//        Busca de departamento selecionado na interface para adicao do funcionario
         for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             if (ListaDepartamentos[i].getNome().equals(departamento)) {
                 ListaDepartamentos[i].adicionarFuncionario(Tecnico);
@@ -83,16 +87,17 @@ public class Universidade {
         return Salario;
     }
 
-//Exibicao de objetos
+//    Exibicao de todos os departamentos
     public String dadosTodosDepartamentos() {
         String Dados = "";
-        double Salario = 0;
+        double Salario;
         Departamento ListaDepartamentos[] = Database.getDepartamentos();
         for (int Index = 0; Index < Database.getContadorDepartamento(); Index++) {
             Salario = 0;
-//            Pega um departamento para pegar os funcionarios
+//            Percorre o vetor de departamentos um de cada vez
             Departamento DAtual = ListaDepartamentos[Index];
             Funcionario ListaFuncionario[] = DAtual.getListaFuncionario();
+//            Percorre o vetor de funcionarios de um departamento um de cada vez
             for (int j = 0; j < DAtual.getQuantidadeFuncionario(); j++) {
                 Salario += calculoSalario(ListaFuncionario[j]);
             }
@@ -158,7 +163,6 @@ public class Universidade {
                         Total de salário deste departamento: R$%.2f
 
                         """.formatted(Salario);
-//            Dados += "Total de salário deste departamento: R$" + Double.toString(Salario) + "\n\n";
         }
         return Dados;
     }
