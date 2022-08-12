@@ -222,7 +222,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void GeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeralActionPerformed
         // TODO add your handling code here:
-        Geral RelatorioInterface = new Geral(this, true);
+        RelatorioGeral RelatorioInterface = new RelatorioGeral(this, true);
         RelatorioInterface.setLocationRelativeTo(this);
         RelatorioInterface.setVisible(true);
     }//GEN-LAST:event_GeralActionPerformed
@@ -324,7 +324,7 @@ public class Principal extends javax.swing.JFrame {
     private void InformacoesDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InformacoesDepartamentoActionPerformed
         // TODO add your handling code here:
         int Quantidade = Controle.getQuantidadeDepartameto();
-        InformacoesDepartamento Informacoes = new InformacoesDepartamento(this, true);
+        BuscarInformacoesDepartamento Informacoes = new BuscarInformacoesDepartamento(this, true);
         for (int i = 0; i < Quantidade; i++) {
             Informacoes.ListaDepartamento(Controle.getDepartamentoNomeNumero(i));
         }
