@@ -9,6 +9,7 @@ import Codigo.Efetivo;
 import Codigo.Funcionario;
 import Codigo.Substituto;
 import Codigo.Tecnico;
+import Persistencia.Database;
 
 /**
  *
@@ -17,28 +18,24 @@ import Codigo.Tecnico;
 public class Universidade {
 
     private String Nome;
-    private int Maximo;
-    private int QuantidadeDepartamento;
-    private Departamento ListaDepartamentos[];
+    private Database Database;
 
     public Universidade(String Nome) {
         this.Nome = Nome;
-        Maximo = 1000;
-        QuantidadeDepartamento = 0;
-        ListaDepartamentos = new Departamento[Maximo];
+        Database = new Database();
     }
 
-//Adicao de objetos
+//Adicao de departamentos no database
     public void adicionarDepartamento(String Codigo, String Nome) {
-        if (QuantidadeDepartamento < Maximo) {
-            ListaDepartamentos[QuantidadeDepartamento] = new Departamento(Codigo, Nome);
-            QuantidadeDepartamento++;
+        if (Database.getContadorDepartamento() < Database.getMaximo()) {
+            Database.adicionarDepartamento(new Departamento(Codigo, Nome));
         }
     }
 
     public void adicionarTecnico(String codigo, String nome, double salario, String categoria, String nivel, String funcao, String departamento) {
         Tecnico Tecnico = new Tecnico(codigo, nome, salario, categoria, nivel, funcao);
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             if (ListaDepartamentos[i].getNome().equals(departamento)) {
                 ListaDepartamentos[i].adicionarFuncionario(Tecnico);
             }
@@ -47,7 +44,8 @@ public class Universidade {
 
     public void adicionarDocenteEfetivo(String codigo, String nome, double salario, String categoria, String nivel, String departamento, String titulacao, String area) {
         Efetivo Efetivo = new Efetivo(codigo, nome, salario, categoria, nivel, titulacao, area);
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             if (ListaDepartamentos[i].getNome().equals(departamento)) {
                 ListaDepartamentos[i].adicionarFuncionario(Efetivo);
             }
@@ -56,7 +54,8 @@ public class Universidade {
 
     public void adicionarDocenteSubstituto(String codigo, String nome, double salario, String categoria, String nivel, String departamento, String titulacao, int cargaHoraria) {
         Substituto Substituto = new Substituto(codigo, nome, salario, categoria, nivel, titulacao, cargaHoraria);
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             if (ListaDepartamentos[i].getNome().equals(departamento)) {
                 ListaDepartamentos[i].adicionarFuncionario(Substituto);
             }
@@ -88,7 +87,8 @@ public class Universidade {
     public String dadosTodosDepartamentos() {
         String Dados = "";
         double Salario = 0;
-        for (int Index = 0; Index < QuantidadeDepartamento; Index++) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int Index = 0; Index < Database.getContadorDepartamento(); Index++) {
             Salario = 0;
 //            Pega um departamento para pegar os funcionarios
             Departamento DAtual = ListaDepartamentos[Index];
@@ -128,8 +128,9 @@ public class Universidade {
 
     public String getFuncionarios() {
         String Dados = "";
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
 //        Percorre o vetor de objetos de departamentos
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             Dados = Dados + "Nome do departamento: " + ListaDepartamentos[i].getNome() + "\n";
             Funcionario ListaFuncionario[] = ListaDepartamentos[i].getListaFuncionario();
             for (int j = 0; j < ListaDepartamentos[i].getQuantidadeFuncionario(); j++) {
@@ -143,8 +144,9 @@ public class Universidade {
     public String getGeral() {
         String Dados = "";
         double Salario = 0;
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
 //        Percorre o vetor de objetos de departamentos
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             Salario = 0;
             Dados = Dados + "Nome do departamento: " + ListaDepartamentos[i].getNome() + "\nLista de funcionários:\n";
             Funcionario ListaFuncionario[] = ListaDepartamentos[i].getListaFuncionario();
@@ -163,7 +165,8 @@ public class Universidade {
 
     public String getTecnicos() {
         String Dados = "";
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             Dados = Dados + "Nome do departamento: " + ListaDepartamentos[i].getNome() + "\n";
             Funcionario ListaFuncionario[] = ListaDepartamentos[i].getListaFuncionario();
             for (int j = 0; j < ListaDepartamentos[i].getQuantidadeFuncionario(); j++) {
@@ -178,7 +181,8 @@ public class Universidade {
 
     public String getDocentes() {
         String Dados = "";
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             Dados = Dados + "Nome do departamento: " + ListaDepartamentos[i].getNome() + "\n";
             Funcionario ListaFuncionario[] = ListaDepartamentos[i].getListaFuncionario();
             for (int j = 0; j < ListaDepartamentos[i].getQuantidadeFuncionario(); j++) {
@@ -199,7 +203,8 @@ public class Universidade {
 
     public String getDocentesEfetivos() {
         String Dados = "";
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             Dados = Dados + "Nome do departamento: " + ListaDepartamentos[i].getNome() + "\n";
             Funcionario ListaFuncionario[] = ListaDepartamentos[i].getListaFuncionario();
             for (int j = 0; j < ListaDepartamentos[i].getQuantidadeFuncionario(); j++) {
@@ -214,7 +219,8 @@ public class Universidade {
 
     public String getDocentesSubstitutos() {
         String Dados = "";
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             Dados = Dados + "Nome do departamento: " + ListaDepartamentos[i].getNome() + "\n";
             Funcionario ListaFuncionario[] = ListaDepartamentos[i].getListaFuncionario();
             for (int j = 0; j < ListaDepartamentos[i].getQuantidadeFuncionario(); j++) {
@@ -227,21 +233,20 @@ public class Universidade {
         return Dados;
     }
 
-    public int getQuantidadeDepartamento() {
-        return QuantidadeDepartamento;
-    }
-
     public String getNomeDepartamentoNumero(int Numero) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
         return ListaDepartamentos[Numero].getNome();
     }
 
     public String getDepartamentoCodigoNumero(int Numero) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
         return ListaDepartamentos[Numero].getCodigo();
     }
 
     public String getNomeDepartamentoCodigo(String Codigo) {
         String Nome = "";
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             if (ListaDepartamentos[i].getCodigo().equals(Codigo)) {
                 Nome = ListaDepartamentos[i].getNome();
             }
@@ -253,7 +258,8 @@ public class Universidade {
         Departamento ResultadoDepartamento = null;
         double Salario = 0;
         String Dados = "";
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             if (ListaDepartamentos[i].getNome().equals(Nome)) {
                 ResultadoDepartamento = ListaDepartamentos[i];
             }
@@ -280,10 +286,11 @@ public class Universidade {
 
     public Departamento[] buscarFaixaDepartamento(double Minimo, double Maximo) {
         double SalarioTotal;
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
         Departamento Departamento[] = new Departamento[1000];
 //        Departamento[] Departamento = null;
         int Contador = 0;
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             Funcionario ListaFuncionario[] = ListaDepartamentos[i].getListaFuncionario();
             SalarioTotal = 0;
             for (int j = 0; j < ListaDepartamentos[i].getQuantidadeFuncionario(); j++) {
@@ -317,7 +324,8 @@ public class Universidade {
 
     public String buscarFuncionarioString(double Minimo, double Maximo) {
         String Dados = "";
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             Funcionario ListaFuncionario[] = ListaDepartamentos[i].getListaFuncionario();
             for (int j = 0; j < ListaDepartamentos[i].getQuantidadeFuncionario(); j++) {
                 if (calculoSalario(ListaFuncionario[j]) > Minimo && calculoSalario(ListaFuncionario[j]) < Maximo) {
@@ -334,7 +342,8 @@ public class Universidade {
     public String getFuncionarioBuscaCodigo(String Codigo) {
         Funcionario F[];
         String Dados = "";
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+        Departamento ListaDepartamentos[] = Database.getDepartamentos();
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             F = ListaDepartamentos[i].getListaFuncionario();
             int QuantidadeFuncionario = ListaDepartamentos[i].getQuantidadeFuncionario();
             for (int j = 0; j < QuantidadeFuncionario; j++) {
@@ -352,7 +361,9 @@ public class Universidade {
     public String getFuncionarioBuscaNome(String Nome) {
         Funcionario F[];
         String Dados = "";
-        for (int i = 0; i < QuantidadeDepartamento; i++) {
+
+        for (int i = 0; i < Database.getContadorDepartamento(); i++) {
+            Departamento ListaDepartamentos[] = Database.getDepartamentos();
             F = ListaDepartamentos[i].getListaFuncionario();
             int QuantidadeFuncionario = ListaDepartamentos[i].getQuantidadeFuncionario();
             for (int j = 0; j < QuantidadeFuncionario; j++) {
@@ -365,5 +376,9 @@ public class Universidade {
             Dados = "Não foi encontrado o funcionário com o nome especificado";
         }
         return Dados;
+    }
+
+    public int getQuantidadeDepartamento() {
+        return Database.getContadorDepartamento();
     }
 }

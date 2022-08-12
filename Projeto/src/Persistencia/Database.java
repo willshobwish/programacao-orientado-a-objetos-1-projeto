@@ -13,18 +13,18 @@ import Codigo.Departamento;
 public class Database {
 
     private Departamento Departamentos[];
-    private int Maximo;
-    private int Contador;
+    private int Maximo = 1000;
+    private int ContadorDepartamento;
 
     public Database() {
         Departamentos = new Departamento[Maximo];
-        Contador = 0;
+        ContadorDepartamento = 0;
     }
 
     public void adicionarDepartamento(Departamento NovoDepartamento) {
-        if (Contador < Maximo) {
-            Departamentos[Contador] = NovoDepartamento;
-            Contador++;
+        if (ContadorDepartamento < Maximo) {
+            Departamentos[ContadorDepartamento] = NovoDepartamento;
+            ContadorDepartamento++;
         }
     }
 
@@ -36,12 +36,20 @@ public class Database {
         this.Departamentos = Departamentos;
     }
 
-    public int getIndex() {
-        return Contador;
+    public int getMaximo() {
+        return Maximo;
     }
 
-    public void setIndex(int Index) {
-        this.Contador = Index;
+    public void setMaximo(int Maximo) {
+        this.Maximo = Maximo;
+    }
+
+    public int getContadorDepartamento() {
+        return ContadorDepartamento;
+    }
+
+    public void setContadorDepartamento(int ContadorDepartamento) {
+        this.ContadorDepartamento = ContadorDepartamento;
     }
 
 }
