@@ -292,8 +292,6 @@ public class Universidade {
             if (SalarioTotal > Minimo && SalarioTotal < Maximo) {
                 Departamento[Contador] = ListaDepartamentos[i];
                 Contador++;
-            } else {
-                Departamento = null;
             }
         }
         return Departamento;
@@ -301,6 +299,7 @@ public class Universidade {
 
     public String buscarFaixaDepartamentoString(double Minimo, double Maximo) {
         String Dados = "";
+//        A linguagem forca a inicializacao do vetor de ponteiros de objetos, eh necessario checar se o objeto existe
         Departamento D[] = null;
         D = buscarFaixaDepartamento(Minimo, Maximo);
         if (D != null) {
@@ -309,7 +308,8 @@ public class Universidade {
                     Dados = Dados + getExibirDepartamentoEspecifico(D[i].getNome());
                 }
             }
-        } else {
+        }
+        if (Dados.equals("")) {
             Dados = "Nenhum departamento foi encontrado";
         }
         return Dados;
