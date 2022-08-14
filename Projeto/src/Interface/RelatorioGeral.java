@@ -1,15 +1,12 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
+Andressa Yida Pinheiro de Souza
+Willian Yoshio Murayama
+Projeto semestral de programacao orientado a objetos
  */
 package Interface;
 
 import Controle.Controle;
 
-/**
- *
- * @author Willian
- */
 public class RelatorioGeral extends javax.swing.JDialog {
 
     /**
@@ -19,7 +16,6 @@ public class RelatorioGeral extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         Controle Controle = new Controle();
-
         Resultado.setText(Controle.exibirGeral());
     }
 

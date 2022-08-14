@@ -1,15 +1,12 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+Andressa Yida Pinheiro de Souza
+Willian Yoshio Murayama
+Projeto semestral de programacao orientado a objetos
  */
 package Interface;
 
 import Controle.Controle;
 
-/**
- *
- * @author Willian
- */
 public class Principal extends javax.swing.JFrame {
 
     /**
@@ -24,12 +21,12 @@ public class Principal extends javax.swing.JFrame {
         InterfaceMenu.setVisible(true);
         InterfaceMenu.setTitle("Sistema faculdade");
         InterfaceMenu.toFront();
-//        Geracao de departamento e funcionarios padrao
-        Controle Controle = new Controle();
-        Controle.adicionarDepartamento("CodigoDepartamento", "Departamento Teste");
-        Controle.cadastrarDocenteEfetivo("123", "DocenteEfetivoNome", 100, "Docente efetivo", "D1", "Departamento Teste", "Graduacao", "Biologicas");
-        Controle.cadastrarDocenteSubstituto("456", "DocenteSubstitutoNome", 100, "Docente substituto", "S1", "Departamento Teste", "Graduacao", 12);
-        Controle.cadastrarTecnico("789", "TecnicoNome", 100, "Tecnico", "T1", "Assesor", "Departamento Teste");
+//        Geracao de departamento e funcionarios para teste
+//        Controle Controle = new Controle();
+//        Controle.adicionarDepartamento("CodigoDepartamento", "Departamento Teste");
+//        Controle.cadastrarDocenteEfetivo("123", "DocenteEfetivoNome", 100, "Docente efetivo", "D1", "Departamento Teste", "Graduacao", "Biologicas");
+//        Controle.cadastrarDocenteSubstituto("456", "DocenteSubstitutoNome", 100, "Docente substituto", "S1", "Departamento Teste", "Graduacao", 12);
+//        Controle.cadastrarTecnico("789", "TecnicoNome", 100, "Tecnico", "T1", "Assesor", "Departamento Teste");
     }
     Controle Controle = new Controle();
 

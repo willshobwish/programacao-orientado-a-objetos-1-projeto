@@ -1,13 +1,10 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
+Andressa Yida Pinheiro de Souza
+Willian Yoshio Murayama
+Projeto semestral de programacao orientado a objetos
  */
 package Interface;
 
-/**
- *
- * @author Willian
- */
 public class ResumoDepartamento extends javax.swing.JDialog {
 
     /**
@@ -18,6 +15,7 @@ public class ResumoDepartamento extends javax.swing.JDialog {
         initComponents();
     }
 
+//    Metodo que pode ser chamado para alteracao do conteudo antes da exibicao na interface principal
     public void alterarTexto(String Titulo, String Texto) {
         ExibirText.setText(Texto);
         this.Titulo.setText(Titulo);

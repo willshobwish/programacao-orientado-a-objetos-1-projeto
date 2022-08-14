@@ -1,15 +1,12 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
+Andressa Yida Pinheiro de Souza
+Willian Yoshio Murayama
+Projeto semestral de programacao orientado a objetos
  */
 package Interface;
 
 import Controle.Controle;
 
-/**
- *
- * @author Willian
- */
 public class CadastroFuncionario extends javax.swing.JDialog {
 
     /**
@@ -25,6 +22,10 @@ public class CadastroFuncionario extends javax.swing.JDialog {
         CadastroRepetido.setText("Digite o código");
         Cadastrar.setEnabled(false);
         CadastroSucesso.setVisible(false);
+        if (Controle.getQuantidadeDepartameto() == 0) {
+            CadastroRepetido.setText("Cadastre um departamento");
+            Cadastrar.setEnabled(false);
+        }
     }
 
     public void ListaDepartamento(String Item) {
@@ -271,6 +272,8 @@ public class CadastroFuncionario extends javax.swing.JDialog {
         double salario;
 
         switch (CategoriaBox.getSelectedItem().toString()) {
+            case "Selecione uma categoria":
+                CadastroRepetido.setText("Selecione uma categoria");
             case "Tecnico":
                 codigo = Codigo.getText();
                 nome = Nome.getText();
@@ -279,6 +282,8 @@ public class CadastroFuncionario extends javax.swing.JDialog {
                 nivel = NivelBox.getSelectedItem().toString();
                 funcao = FuncaoTitulacaoJBox.getSelectedItem().toString();
                 Controle.cadastrarTecnico(codigo, nome, salario, categoria, nivel, funcao, Departamento.getSelectedItem().toString());
+                CadastroSucesso.setText("Funcionário cadastrado com sucesso");
+                CadastroSucesso.setVisible(true);
                 break;
             case "Docente efetivo":
                 codigo = Codigo.getText();
@@ -289,6 +294,8 @@ public class CadastroFuncionario extends javax.swing.JDialog {
                 titulacao = FuncaoTitulacaoJBox.getSelectedItem().toString();
                 area = CargaHorariaAreaJBox.getSelectedItem().toString();
                 Controle.cadastrarDocenteEfetivo(codigo, nome, salario, categoria, nivel, Departamento.getSelectedItem().toString(), titulacao, area);
+                CadastroSucesso.setText("Funcionário cadastrado com sucesso");
+                CadastroSucesso.setVisible(true);
                 break;
             case "Docente substituto":
                 codigo = Codigo.getText();
@@ -299,10 +306,11 @@ public class CadastroFuncionario extends javax.swing.JDialog {
                 titulacao = FuncaoTitulacaoJBox.getSelectedItem().toString();
                 cargaHoraria = Integer.parseInt(CargaHorariaAreaJBox.getSelectedItem().toString());
                 Controle.cadastrarDocenteSubstituto(codigo, nome, salario, categoria, nivel, Departamento.getSelectedItem().toString(), titulacao, cargaHoraria);
+                CadastroSucesso.setText("Funcionário cadastrado com sucesso");
+                CadastroSucesso.setVisible(true);
                 break;
         }
-        CadastroSucesso.setText("Funcionário cadastrado com sucesso");
-        CadastroSucesso.setVisible(true);
+
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void DepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepartamentoActionPerformed
@@ -311,7 +319,10 @@ public class CadastroFuncionario extends javax.swing.JDialog {
 
     private void CodigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CodigoFocusLost
         // TODO add your handling code here:
-        if (Controle.codigoRepetidoFuncionario(Codigo.getText()) || Codigo.getText().equals("")) {
+        if (Controle.getQuantidadeDepartameto() == 0) {
+            CadastroRepetido.setText("Cadastre um departamento");
+            Cadastrar.setEnabled(false);
+        } else if (Controle.codigoRepetidoFuncionario(Codigo.getText()) || Codigo.getText().equals("")) {
             CadastroRepetido.setText("Código indisponível");
             Cadastrar.setEnabled(false);
         } else {

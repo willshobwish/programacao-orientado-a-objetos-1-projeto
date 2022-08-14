@@ -1,15 +1,12 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+Andressa Yida Pinheiro de Souza
+Willian Yoshio Murayama
+Projeto semestral de programacao orientado a objetos
  */
 package Armazenamento;
 
 import Modelo.Departamento;
 
-/**
- *
- * @author Willian
- */
 public class Database {
 
     private Departamento Departamentos[];

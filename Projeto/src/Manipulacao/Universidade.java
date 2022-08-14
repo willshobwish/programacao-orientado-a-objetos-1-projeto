@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+Andressa Yida Pinheiro de Souza
+Willian Yoshio Murayama
+Projeto semestral de programacao orientado a objetos
  */
 package Manipulacao;
 
@@ -11,10 +12,6 @@ import Modelo.Funcionario;
 import Modelo.Substituto;
 import Modelo.Tecnico;
 
-/**
- *
- * @author Willian
- */
 public class Universidade {
 
     private String Nome;
@@ -46,6 +43,7 @@ public class Universidade {
         }
     }
 
+//    Adicao de docente efetivo
     public void adicionarDocenteEfetivo(String codigo, String nome, double salario, String categoria, String nivel, String departamento, String titulacao, String area) {
         Efetivo Efetivo = new Efetivo(codigo, nome, salario, categoria, nivel, titulacao, area);
         Departamento ListaDepartamentos[] = Database.getDepartamentos();
@@ -56,6 +54,7 @@ public class Universidade {
         }
     }
 
+//    Adicao de docente substituto
     public void adicionarDocenteSubstituto(String codigo, String nome, double salario, String categoria, String nivel, String departamento, String titulacao, int cargaHoraria) {
         Substituto Substituto = new Substituto(codigo, nome, salario, categoria, nivel, titulacao, cargaHoraria);
         Departamento ListaDepartamentos[] = Database.getDepartamentos();
