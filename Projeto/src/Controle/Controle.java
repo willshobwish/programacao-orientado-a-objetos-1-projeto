@@ -52,7 +52,7 @@ public class Controle {
     }
 
     public String exibirTodosFuncionarios() {
-        return Universidade.getFuncionarios();
+        return Universidade.getTodosFuncionariosDepartamentos();
     }
 
     public String exibirTodosTecnicos() {

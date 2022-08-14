@@ -31,9 +31,9 @@ public class Universidade {
             Database.adicionarDepartamento(new Departamento(Codigo, Nome));
         }
     }
+
 //    Adicao de funcionarios dependendo da categoria e do departamento
 //    Um dos parametros necessario eh em que departamento sera inserido o funcionario
-
     public void adicionarTecnico(String codigo, String nome, double salario, String categoria, String nivel, String funcao, String departamento) {
         Tecnico Tecnico = new Tecnico(codigo, nome, salario, categoria, nivel, funcao);
 //        Recuperacao da lista de departamentos existentes e criados
@@ -112,6 +112,7 @@ public class Universidade {
         return Dados;
     }
 
+//    Pega os dados de um funcionario dependendo da sua categoria para obter os dados especificos
     public String getDadosFuncionarios(Funcionario Funcionario) {
         String Dados = "";
         switch (Funcionario.getCategoria()) {
@@ -131,7 +132,8 @@ public class Universidade {
         return Dados;
     }
 
-    public String getFuncionarios() {
+//    Pega os dados de todos os funcionarios de todos os departamentos
+    public String getTodosFuncionariosDepartamentos() {
         String Dados = "";
         Departamento ListaDepartamentos[] = Database.getDepartamentos();
 //        Percorre o vetor de objetos de departamentos
@@ -146,6 +148,7 @@ public class Universidade {
         return Dados;
     }
 
+//    Retorna o resumo dos departamentos
     public String getGeral() {
         String Dados = "";
         double Salario = 0;
@@ -167,6 +170,7 @@ public class Universidade {
         return Dados;
     }
 
+//    Retorna todos os funcionarios tecnicos de todos os departamentos
     public String getTecnicos() {
         String Dados = "";
         Departamento ListaDepartamentos[] = Database.getDepartamentos();
@@ -183,6 +187,7 @@ public class Universidade {
         return Dados;
     }
 
+    //    Retorna todos os docentes de todos os departamentos
     public String getDocentes() {
         String Dados = "";
         Departamento ListaDepartamentos[] = Database.getDepartamentos();
@@ -205,6 +210,7 @@ public class Universidade {
         return Dados;
     }
 
+    //    Retorna todos os docentes efetivos de todos os departamentos
     public String getDocentesEfetivos() {
         String Dados = "";
         Departamento ListaDepartamentos[] = Database.getDepartamentos();
@@ -221,6 +227,7 @@ public class Universidade {
         return Dados;
     }
 
+    //    Retorna todos os docentes substitutos de todos os departamentos
     public String getDocentesSubstitutos() {
         String Dados = "";
         Departamento ListaDepartamentos[] = Database.getDepartamentos();
@@ -258,6 +265,7 @@ public class Universidade {
         return Nome;
     }
 
+//    Retorna os dados de um departamento especifico
     public String getExibirDepartamentoEspecifico(String Nome) {
         Departamento ResultadoDepartamento = null;
         double Salario = 0;
@@ -288,6 +296,7 @@ public class Universidade {
         return Dados;
     }
 
+//    Este metodo eh utilizado na busca de um intervalo de salario total de um departamento retornando um vetor de departamentos
     public Departamento[] buscarFaixaDepartamento(double Minimo, double Maximo) {
         double SalarioTotal;
         Departamento ListaDepartamentos[] = Database.getDepartamentos();
@@ -308,6 +317,7 @@ public class Universidade {
         return Departamento;
     }
 
+//    Busca os departamentos dentro do total de salario estipulado pela entrada
     public String buscarFaixaDepartamentoString(double Minimo, double Maximo) {
         String Dados = "";
 //        A linguagem forca a inicializacao do vetor de ponteiros de objetos, eh necessario checar se o objeto existe
@@ -326,6 +336,7 @@ public class Universidade {
         return Dados;
     }
 
+//    Busca os funcionarios dos departamentos em um vetor e verifica se esta dentro do intervalo estipulado
     public String buscarFuncionarioString(double Minimo, double Maximo) {
         String Dados = "";
         Departamento ListaDepartamentos[] = Database.getDepartamentos();
@@ -343,6 +354,7 @@ public class Universidade {
         return Dados;
     }
 
+//    Pega os vetores de funcionarios dos departamentos com o metodo que possui o retorno de codigo e comparando se eh igual
     public String getFuncionarioBuscaCodigo(String Codigo) {
         Funcionario F[];
         String Dados = "";
@@ -362,10 +374,10 @@ public class Universidade {
         return Dados;
     }
 
+//    Pega os vetores de funcionarios dos departamentos com o metodo que possui o retorno de nome e comparando se eh igual
     public String getFuncionarioBuscaNome(String Nome) {
         Funcionario F[];
         String Dados = "";
-
         for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             Departamento ListaDepartamentos[] = Database.getDepartamentos();
             F = ListaDepartamentos[i].getListaFuncionario();
@@ -387,14 +399,14 @@ public class Universidade {
     }
 
     public boolean codigoRepetidoDepartamento(String Codigo) {
-        boolean Repeticao = false;
+        boolean Repetido = false;
         Departamento ListaDepartamentos[] = Database.getDepartamentos();
         for (int i = 0; i < Database.getContadorDepartamento(); i++) {
             if (ListaDepartamentos[i].getCodigo().equals(Codigo)) {
-                Repeticao = true;
+                Repetido = true;
             }
         }
-        return Repeticao;
+        return Repetido;
     }
 
     public boolean codigoRepetidoFuncionario(String Codigo) {
