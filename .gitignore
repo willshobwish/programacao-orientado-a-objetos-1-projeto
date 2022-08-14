@@ -25,10 +25,9 @@ replay_pid*
 /Projeto/nbproject/private/
 /Projeto/build/
 /Projeto/dist/
-Projeto/src/Interface/NovoCadastro.form
-Projeto/src/Interface/NovoCadastro.java
-Projeto/src/Interface/Principal.form
-Projeto/src/Interface/Principal.java
-Projeto/src/Interface/Relatorio.form
-Projeto/src/Interface/Relatorio.java
-*.pdf
+# Projeto/src/Interface/NovoCadastro.form
+# Projeto/src/Interface/NovoCadastro.java
+# Projeto/src/Interface/Principal.form
+# Projeto/src/Interface/Principal.java
+# Projeto/src/Interface/Relatorio.form
+# Projeto/src/Interface/Relatorio.java
